@@ -34,7 +34,7 @@ export default () => (
 ```
 
 ### Output
-#### Robot View
+#### Robot Interaction
 ```html
 <p>
   Phone: <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;">4321-454-502</a><br>
