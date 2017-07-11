@@ -5,7 +5,7 @@
 > An intelligent React component to obfuscate any contact link
 
 ## How it works
-The user passes the contact link as a ```email, tel, sms, or facetime``` prop. The component obfuscates href data until an onClick event. The link is rendered in reverse in the dom, but reversed again with css. This making the link user friendly on screen, but useless for spammers.
+The user passes the contact link as an ```email, tel, sms, or facetime``` prop. The component obfuscates href data until an onClick event. Links given their proper URL schemes. The link is rendered in reverse in the dom, but reversed again with css. This making the link useless for spammers, but user friendly on screen.
 
 ## Why
 The world needs obfuscated links that display the link in a friendly way.
@@ -34,10 +34,19 @@ export default () => (
 ```
 
 ### Output
+#### Robot View
 ```html
 <p>
   Phone: <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;">4321-454-502</a><br>
   Email: <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;">looc.notsoc@olleh</a>
+</p>
+```
+
+#### Human Interaction
+```html
+<p>
+  Phone: <a href="tel:205-454-1234">205-454-1234</a><br>
+  Email: <a href="mailto:hello@coston.cool&subject=Question%20from%20the%20website&cc=friend@coston.cool">hello@coston.cool</a>
 </p>
 ```
 
@@ -50,7 +59,7 @@ tel       | `string`  | `<optional>` | `null`    | telephone number of the inten
 sms       | `string`  | `<optional>` | `null`    | sms number of the intended recipient.
 facetime  | `string`  | `<optional>` | `null`    | facetime address of the intended recipient.
 obfuscate | `boolean` | `<optional>` | `true`    | set to false if you would like.
-headers   | `object`  | `<optional>` | `null`    | any standard mail header fields. The most commonly-used of these are "subject", "cc", and "body" (which is not a true header field, but allows you to specify a short content message for the new email).
+headers   | `object`  | `<optional>` | `null`    | subject, cc, bcc, body, etc
 
 
 ## Development
