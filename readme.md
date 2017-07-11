@@ -1,4 +1,6 @@
-# React-Obfuscate [![Build Status](https://travis-ci.org/coston/react-obfuscate.png?branch=master)](https://travis-ci.org/coston/react-obfuscate)
+# React-Obfuscate 
+[![Build Status](https://travis-ci.org/coston/react-obfuscate.png?branch=master)](https://travis-ci.org/coston/react-obfuscate)
+[![npm version](https://img.shields.io/npm/v/react-obfuscate.svg?style=flat-square)](https://www.npmjs.com/package/react-obfuscate)
 
 > An intelligent React component to obfuscate any contact link
 
@@ -15,8 +17,8 @@ npm install --save react-obfuscate
 
 ### Input 
 ```javascript
-import react = from 'react'
-import Obfuscate = from 'react-obfuscate'
+import React from 'react'
+import Obfuscate from 'react-obfuscate'
 
 export default () => (
   <p>
