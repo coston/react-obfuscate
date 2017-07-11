@@ -1,4 +1,4 @@
-# React-Obfuscate 
+# react-obfuscate 
 [![Build Status](https://travis-ci.org/coston/react-obfuscate.png?branch=master)](https://travis-ci.org/coston/react-obfuscate)
 [![npm version](https://badge.fury.io/js/react-obfuscate.svg)](https://badge.fury.io/js/react-obfuscate)
 
