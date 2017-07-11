@@ -28,7 +28,7 @@ export default () => (
       headers={
         {subject:'Question from the website'},
         {cc:'friend@coston.cool'}
-        }/>
+      }/>
   </p>
 )
 ```
