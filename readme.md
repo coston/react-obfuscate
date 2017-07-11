@@ -1,6 +1,6 @@
 # React-Obfuscate [![Build Status](https://travis-ci.org/coston/react-obfuscate.png?branch=master)](https://travis-ci.org/coston/react-obfuscate)
 
-> An intelligent React component to obfuscate any contact link!
+> An intelligent React component to obfuscate any contact link
 
 ## How it works
 The user passes the contact link as a ```email, tel, sms, or facetime``` prop. The component obfuscates href data until an onClick event. The link is rendered in reverse in the dom, but reversed again with css. This making the link user friendly on screen, but useless for spammers.
