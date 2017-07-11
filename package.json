@@ -1,17 +1,13 @@
 {
   "name": "react-obfuscate",
   "version": "1.0.0",
-  "description": "Ease react contact link obfuscation",
+  "description": "An intelligent React component to obfuscate any contact link",
   "main": "dist/Obfuscate.js",
-  "author": {
-    "name": "Coston Perkins",
-    "email": "coston.perkins@ua.edu",
-    "url": "http://coston.cool"
-  },
+  "author": "Coston Perkins <coston.perkins@ua.edu> (http://coston.cool)",
   "homepage": "https://github.com/coston/react-obfuscate",
   "repository": {
     "type": "git",
-    "url": "https://github.com/coston/react-obfuscate.git"
+    "url": "git+https://github.com/coston/react-obfuscate.git"
   },
   "bugs": {
     "url": "https://github.com/coston/react-obfuscate/issues"
@@ -51,5 +47,9 @@
     "obfuscator",
     "mailto",
     "markup"
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {}
 }
