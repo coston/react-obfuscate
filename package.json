@@ -1,0 +1,55 @@
+{
+  "name": "react-obfuscate",
+  "version": "1.0.0",
+  "description": "Ease react contact link obfuscation",
+  "main": "dist/Obfuscate.js",
+  "author": {
+    "name": "Coston Perkins",
+    "email": "coston.perkins@ua.edu",
+    "url": "http://coston.cool"
+  },
+  "homepage": "https://github.com/coston/react-obfuscate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coston/react-obfuscate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coston/react-obfuscate/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "build": "babel -d dist src",
+    "clean": "rm -rf dist && mkdir dist",
+    "watch": "babel -w -d dist src",
+    "test": "no tests yet!",
+    "preversion": "npm run clean && npm run build",
+    "postpublish": "git push && git push --tag"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.0.2",
+    "core-js": "^2.4.1",
+    "mocha": "^3.4.2",
+    "react": "^15.6.1",
+    "react-addons-test-utils": "^15.6.0",
+    "react-shallow-output": "^0.2.0"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "email",
+    "tel",
+    "obfuscate",
+    "obfuscation",
+    "obfuscator",
+    "mailto",
+    "markup"
+  ]
+}
