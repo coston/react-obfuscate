@@ -1,6 +1,6 @@
 # React-Obfuscate 
 [![Build Status](https://travis-ci.org/coston/react-obfuscate.png?branch=master)](https://travis-ci.org/coston/react-obfuscate)
-[![npm version](https://img.shields.io/npm/v/react-obfuscate.svg?style=flat-square)](https://www.npmjs.com/package/react-obfuscate)
+[![npm version](https://badge.fury.io/js/react-obfuscate.svg)](https://badge.fury.io/js/react-obfuscate)
 
 > An intelligent React component to obfuscate any contact link
 
