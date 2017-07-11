@@ -10,7 +10,7 @@ The world needs obfuscated links that display the link in a friendly way.
 
 ## Usage
 ```bash
-npm install --save react-obfuscate`
+npm install --save react-obfuscate
 ```
 
 ### Input 
