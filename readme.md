@@ -5,7 +5,7 @@
 > An intelligent React component to obfuscate any contact link
 
 ## How it works
-The user passes the contact link as an ```email, tel, sms, or facetime``` prop. The component obfuscates href data until an onClick event. Links given their proper URL schemes. The link is rendered in reverse in the dom, but reversed again with css. This making the link useless for spammers, but user friendly on screen.
+The user passes the contact link as an ```email, tel, sms, or facetime``` prop. The component obfuscates href data until an onClick event. Links are given their proper URL schemes (mailto, facetime, etc.) The link is rendered in reverse in the dom, but reversed again with css. This making the link useless for spammers, but user friendly on screen.
 
 ## Why
 The world needs obfuscated links that display the link in a friendly way.
@@ -54,12 +54,12 @@ export default () => (
 
 Prop      | Type      | Argument     | Default   | Description
 ----------|-----------|--------------|-----------|------------
-email     | `string`  | `<optional>` | `null`    | email address of the intended recipient.
-tel       | `string`  | `<optional>` | `null`    | telephone number of the intended recipient.
-sms       | `string`  | `<optional>` | `null`    | sms number of the intended recipient.
-facetime  | `string`  | `<optional>` | `null`    | facetime address of the intended recipient.
-obfuscate | `boolean` | `<optional>` | `true`    | set to false if you would like.
+email     | `string`  | `<optional>` | `null`    | email address of the intended recipient
+tel       | `string`  | `<optional>` | `null`    | telephone number of the intended recipient
+sms       | `string`  | `<optional>` | `null`    | sms number of the intended recipient
+facetime  | `string`  | `<optional>` | `null`    | facetime address of the intended recipient
 headers   | `object`  | `<optional>` | `null`    | subject, cc, bcc, body, etc
+obfuscate | `boolean` | `<optional>` | `true`    | set to false if you would like
 
 
 ## Development
