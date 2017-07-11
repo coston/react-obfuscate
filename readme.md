@@ -8,12 +8,10 @@ The user passes the contact link as a ```email, tel, sms, or facetime``` prop. T
 ## Why
 The world needs obfuscated links that display the link in a friendly way.
 
-## Getting Started
-
-- Install with [npm](https://www.npmjs.org/) - `npm install --save react-obfuscate`
-
-
 ## Usage
+```bash
+npm install --save react-obfuscate`
+```
 
 ### Input 
 ```javascript
@@ -33,7 +31,7 @@ export default () => (
 )
 ```
 
-### Raw Output
+### Output
 ```html
 <p>
   Phone: <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;">4321-454-502</a><br>
