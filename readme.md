@@ -1,6 +1,7 @@
 # react-obfuscate 
-[![Build Status](https://travis-ci.org/coston/react-obfuscate.png?branch=master)](https://travis-ci.org/coston/react-obfuscate)
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 [![npm version](https://badge.fury.io/js/react-obfuscate.svg)](https://badge.fury.io/js/react-obfuscate)
+[![npm](https://img.shields.io/npm/dm/localeval.svg)]()
 
 ![react-obfuscate](https://user-images.githubusercontent.com/7424180/28096225-c2f07142-666c-11e7-96ab-c12f34d1b86f.png)
 
