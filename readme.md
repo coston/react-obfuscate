@@ -53,14 +53,14 @@ export default () => (
 
 ## Options
 
-Prop      | Type      | Argument     | Default   | Description
-----------|-----------|--------------|-----------|------------
-email     | `string`  | `<optional>` | `null`    | email address of the intended recipient
-tel       | `string`  | `<optional>` | `null`    | telephone number of the intended recipient
-sms       | `string`  | `<optional>` | `null`    | sms number of the intended recipient
-facetime  | `string`  | `<optional>` | `null`    | facetime address of the intended recipient
-headers   | `object`  | `<optional>` | `null`    | subject, cc, bcc, body, etc
-obfuscate | `boolean` | `<optional>` | `true`    | set to false if you would like
+Prop      | Type      | Description
+----------|-----------|------------
+email     | `string`  | email address of the intended recipient
+tel       | `string`  | telephone number of the intended recipient
+sms       | `string`  | sms number of the intended recipient
+facetime  | `string`  | facetime address of the intended recipient
+headers   | `object`  | subject, cc, bcc, body, etc
+obfuscate | `boolean` | set to {false} if you would like
 
 
 ## Development
