@@ -5,19 +5,6 @@
 
 ![react-obfuscate](https://user-images.githubusercontent.com/7424180/28096225-c2f07142-666c-11e7-96ab-c12f34d1b86f.png)
 
-## Documentation
-* [Demo & Examples](#demo--examples)
-* [How it works](#how-it-works)
-* [Why](#why)
-* [Installation](#installation)
-* [Input](#input)
-* [Output](#output)
-* [Options](#options)
-* [Development](#development)
-* [Contributing](#contributing)
-* [To Do](#to-do)
-* [License](#license)
-
 
 ## Demo & Examples
 
