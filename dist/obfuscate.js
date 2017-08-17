@@ -13,6 +13,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -124,13 +126,13 @@ var Obfuscate = function (_Component) {
 }(_react.Component);
 
 Obfuscate.propTypes = {
-  children: _react.PropTypes.node,
-  tel: _react.PropTypes.string,
-  sms: _react.PropTypes.string,
-  facetime: _react.PropTypes.string,
-  email: _react.PropTypes.string,
-  headers: _react.PropTypes.object,
-  obfuscate: _react.PropTypes.bool
+  children: _propTypes.node,
+  tel: _propTypes.string,
+  sms: _propTypes.string,
+  facetime: _propTypes.string,
+  email: _propTypes.string,
+  headers: _propTypes.object,
+  obfuscate: _propTypes.bool
 };
 
 Obfuscate.defaultProps = {
