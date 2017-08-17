@@ -75,6 +75,10 @@ obfuscate | `boolean` | `<optional>` | `true`    | set to false to disable obfus
 npm run build
 ```
 
+## Contributors
+react-obfuscate is awesome thanks to these great community members:
+- [coston](https://github.com/coston)
+- [bostrom](https://github.com/bostrom)
 
 ## Contributing
 Please help make this react component better. Submit any issue and/or make a pull request!
