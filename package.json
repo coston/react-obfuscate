@@ -33,6 +33,7 @@
     "chai": "^4.0.2",
     "core-js": "^2.4.1",
     "mocha": "^3.4.2",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-addons-test-utils": "^15.6.0",
     "react-shallow-output": "^0.2.0"

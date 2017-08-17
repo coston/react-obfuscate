@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import {node, string, object, bool} from 'prop-types'
 
 export const combineHeaders = (searchParams = {}) => {
   return Object.keys(searchParams).map(key =>
@@ -63,13 +64,13 @@ class Obfuscate extends Component {
 }
 
 Obfuscate.propTypes = {
-  children: PropTypes.node,
-  tel: PropTypes.string,
-  sms: PropTypes.string,
-  facetime: PropTypes.string,
-  email: PropTypes.string,
-  headers: PropTypes.object,
-  obfuscate: PropTypes.bool
+  children: node,
+  tel: string,
+  sms: string,
+  facetime: string,
+  email: string,
+  headers: object,
+  obfuscate: bool
 }
 
 Obfuscate.defaultProps = {
