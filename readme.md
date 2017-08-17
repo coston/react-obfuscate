@@ -76,7 +76,7 @@ npm run build
 ```
 
 ## Contributors
-react-obfuscate is awesome thanks to these great community members:
+react-obfuscate is awesome thanks to these community members:
 - [coston](https://github.com/coston)
 - [bostrom](https://github.com/bostrom)
 
