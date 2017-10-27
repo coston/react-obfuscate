@@ -6,3 +6,8 @@ node_js:
 script:
   - npm install
   - npm run build
+before_install:
+  - npm install -g npm@5
+  - npm install -g greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
