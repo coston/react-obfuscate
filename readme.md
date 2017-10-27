@@ -23,7 +23,7 @@ npm install --save react-obfuscate
 ```
 
 ### Input 
-```javascript
+```js
 import React from 'react'
 import Obfuscate from 'react-obfuscate'
 
@@ -50,7 +50,7 @@ export default () => (
 ```
 
 #### Human Interaction
-```html
+```js
 <p>
   Phone: <a href="tel:205-454-1234">205-454-1234</a><br>
   Email: <a href="mailto:hello@coston.cool&subject=Question%20from%20the%20website&cc=friend@coston.cool">hello@coston.cool</a>
