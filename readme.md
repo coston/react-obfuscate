@@ -1,4 +1,6 @@
 # react-obfuscate 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/coston/react-obfuscate.svg)](https://greenkeeper.io/)
 [![Travis](https://img.shields.io/travis/coston/react-obfuscate.svg)](https://travis-ci.org/coston/react-obfuscate)
 [![npm version](https://badge.fury.io/js/react-obfuscate.svg)](https://www.npmjs.com/package/react-obfuscate)
 [![npm](https://img.shields.io/npm/dm/react-obfuscate.svg)](https://www.npmjs.com/package/react-obfuscate)
