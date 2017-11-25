@@ -10,7 +10,7 @@
 
 ## Demo & Examples
 
-Live demo: [coston.cool/react-obfuscate](http://coston.cool/projects/react-obfuscate/)
+Live demo: [coston.io/projects/react-obfuscate](http://coston.io/projects/react-obfuscate/)
 
 
 ## How it works
