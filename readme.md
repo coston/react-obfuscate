@@ -1,4 +1,4 @@
-# react-obfuscate 
+# react-obfuscate
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/coston/react-obfuscate.svg)](https://greenkeeper.io/)
 [![Travis](https://img.shields.io/travis/coston/react-obfuscate.svg)](https://travis-ci.org/coston/react-obfuscate)
@@ -10,7 +10,7 @@
 
 ## Demo & Examples
 
-Live demo: [coston.io/projects/react-obfuscate](https://coston.io/dev/react-obfuscate/)
+Live demo: [coston.io/dev/react-obfuscate](https://coston.io/dev/react-obfuscate/)
 
 
 ## How it works
@@ -24,7 +24,7 @@ The world needs obfuscated links that display the link in a friendly way.
 npm install --save react-obfuscate
 ```
 
-### Input 
+### Input
 ```js
 import React from 'react'
 import Obfuscate from 'react-obfuscate'
@@ -32,8 +32,8 @@ import Obfuscate from 'react-obfuscate'
 export default () => (
   <p>
     Phone: <Obfuscate tel='205-454-1234' /><br />
-    Email: <Obfuscate 
-      email='hello@coston.cool' 
+    Email: <Obfuscate
+      email='hello@coston.cool'
       headers={
         {subject:'Question from the website'},
         {cc:'friend@coston.cool'}
