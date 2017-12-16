@@ -104,7 +104,7 @@ var Obfuscate = function (_Component) {
       return _react2.default.createElement(
         'a',
         _extends({ onClick: this.handleClick.bind(this), href: 'obfuscated' }, others, { style: { direction: 'rtl', unicodeBidi: 'bidi-override' } }),
-        this.reverse(tel || sms || facetime || email) || children
+        this.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(') || children
       );
     }
   }, {
