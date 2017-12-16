@@ -51,7 +51,7 @@ class Obfuscate extends Component {
     const { tel, sms, facetime, email, obfuscate, headers, children, ...others } = this.props
     return (
       <a onClick={this.handleClick.bind(this)} href='obfuscated' {...others} style={{direction: 'rtl', unicodeBidi: 'bidi-override'}}>
-        { this.reverse(tel || sms || facetime || email) || children }
+        { this.reverse(tel || sms || facetime || email).replace('(',')').replace(')', '(') || children }
       </a>
     )
   }
