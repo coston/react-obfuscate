@@ -80,8 +80,7 @@ var Obfuscate = function (_Component) {
       return _react2.default.createElement(
         'a',
         _extends({
-          href: createContactLink(tel, sms, facetime, email, headers),
-          role: 'link'
+          href: createContactLink(tel, sms, facetime, email, headers)
         }, others),
         tel || sms || facetime || email || children
       );
@@ -108,10 +107,10 @@ var Obfuscate = function (_Component) {
         'a',
         _extends({
           onClick: this.handleClick.bind(this),
-          href: 'obfuscated',
-          style: { direction: 'rtl', unicodeBidi: 'bidi-override' },
-          role: 'link'
-        }, others),
+          href: 'obfuscated'
+        }, others, {
+          style: { direction: 'rtl', unicodeBidi: 'bidi-override' }
+        }),
         this.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(') || children
       );
     }
