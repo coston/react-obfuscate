@@ -1,6 +1,6 @@
 {
   "name": "react-obfuscate",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An intelligent React component to obfuscate any contact link",
   "main": "dist/obfuscate.js",
   "author": "Coston Perkins <coston.perkins@ua.edu> (https://coston.io)",
