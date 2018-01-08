@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import {node, string, object, bool} from 'prop-types'
+import { node, string, object, bool } from 'prop-types'
 
 export const combineHeaders = (searchParams = {}) => {
-  return Object.keys(searchParams).map(key =>
-    `${key}=${encodeURIComponent(searchParams[key])}`
-  ).join('&')
+  return Object.keys(searchParams)
+    .map(key => `${key}=${encodeURIComponent(searchParams[key])}`)
+    .join('&')
 }
 
 export const createContactLink = (tel, sms, facetime, email, headers) => {
@@ -14,49 +14,80 @@ export const createContactLink = (tel, sms, facetime, email, headers) => {
     if (headers) {
       link += `?${combineHeaders(headers)}`
     }
-  }
-  else if (tel) {
+  } else if (tel) {
     link = `tel:${tel}`
-  }
-  else if (sms) {
+  } else if (sms) {
     link = `sms:${sms}`
-  }
-  else if (facetime) {
+  } else if (facetime) {
     link = `facetime:${facetime}`
   }
   return link
 }
 
 class Obfuscate extends Component {
-  render () {
+  render() {
     return this.props.obfuscate
       ? this.renderObfuscatedLink()
       : this.renderLink()
   }
 
-  renderLink () {
-    const { tel, sms, facetime, email, obfuscate, headers, children, ...others } = this.props
+  renderLink() {
+    const {
+      tel,
+      sms,
+      facetime,
+      email,
+      obfuscate,
+      headers,
+      children,
+      ...others
+    } = this.props
     return (
-      <a href={createContactLink(tel, sms, facetime, email, headers)} {...others}>
-        {tel || sms || facetime || email || children }
+      <a
+        href={createContactLink(tel, sms, facetime, email, headers)}
+        role="link"
+        {...others}
+      >
+        {tel || sms || facetime || email || children}
       </a>
     )
   }
 
-  reverse (s) {
-    return s.split('').reverse().join('')
+  reverse(s) {
+    return s
+      .split('')
+      .reverse()
+      .join('')
   }
 
-  renderObfuscatedLink () {
-    const { tel, sms, facetime, email, obfuscate, headers, children, ...others } = this.props
+  renderObfuscatedLink() {
+    const {
+      tel,
+      sms,
+      facetime,
+      email,
+      obfuscate,
+      headers,
+      children,
+      ...others
+    } = this.props
     return (
-      <a onClick={this.handleClick.bind(this)} href='obfuscated' {...others} style={{direction: 'rtl', unicodeBidi: 'bidi-override'}}>
-        { this.reverse(tel || sms || facetime || email).replace('(',')').replace(')', '(') || children }
+      <a
+        onClick={this.handleClick.bind(this)}
+        href="obfuscated"
+        style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}
+        role="link"
+        {...others}
+        
+      >
+        {this.reverse(tel || sms || facetime || email)
+          .replace('(', ')')
+          .replace(')', '(') || children}
       </a>
     )
   }
 
-  handleClick (event) {
+  handleClick(event) {
     event.preventDefault()
     const { tel, sms, facetime, email, headers } = this.props
     window.location.href = createContactLink(tel, sms, facetime, email, headers)
@@ -70,11 +101,11 @@ Obfuscate.propTypes = {
   facetime: string,
   email: string,
   headers: object,
-  obfuscate: bool
+  obfuscate: bool,
 }
 
 Obfuscate.defaultProps = {
-  obfuscate: true
+  obfuscate: true,
 }
 
 export default Obfuscate
