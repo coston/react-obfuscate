@@ -45,7 +45,6 @@ class Obfuscate extends Component {
     return (
       <a
         href={createContactLink(tel, sms, facetime, email, headers)}
-        role="link"
         {...others}
       >
         {tel || sms || facetime || email || children}
@@ -75,10 +74,8 @@ class Obfuscate extends Component {
       <a
         onClick={this.handleClick.bind(this)}
         href="obfuscated"
-        style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}
-        role="link"
         {...others}
-        
+        style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}
       >
         {this.reverse(tel || sms || facetime || email)
           .replace('(', ')')
