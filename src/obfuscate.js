@@ -70,12 +70,21 @@ class Obfuscate extends Component {
       children,
       ...others
     } = this.props
+
+    const style = {
+      unicodeBidi: 'bidi-override',
+    };
+
+    if (!children) {
+      style.direction = 'rtl';
+    }
+
     return (
       <a
         onClick={this.handleClick.bind(this)}
         href="obfuscated"
         {...others}
-        style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}
+        style={style}
       >
         {
           children ||
