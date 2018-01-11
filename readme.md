@@ -81,6 +81,7 @@ npm run build
 react-obfuscate is awesome thanks to these community members:
 - [coston](https://github.com/coston)
 - [bostrom](https://github.com/bostrom)
+- [timmygee](https://github.com/timmygee)
 
 ## Contributing
 Please help make this react component better. Submit any issue and/or make a pull request!
