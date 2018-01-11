@@ -104,9 +104,9 @@ var Obfuscate = function (_Component) {
           style = _props2.style,
           others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children', 'style']);
 
-      var obsStyle = {
+      var obsStyle = _extends({}, style || {}, {
         unicodeBidi: 'bidi-override'
-      };
+      });
 
       if (!children) {
         obsStyle.direction = 'rtl';

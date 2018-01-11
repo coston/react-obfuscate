@@ -73,6 +73,7 @@ class Obfuscate extends Component {
     } = this.props
 
     const obsStyle = {
+      ...(style || {}),
       unicodeBidi: 'bidi-override',
     };
 
