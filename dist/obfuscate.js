@@ -82,7 +82,7 @@ var Obfuscate = function (_Component) {
         _extends({
           href: createContactLink(tel, sms, facetime, email, headers)
         }, others),
-        tel || sms || facetime || email || children
+        children || tel || sms || facetime || email
       );
     }
   }, {
@@ -111,7 +111,7 @@ var Obfuscate = function (_Component) {
         }, others, {
           style: { direction: 'rtl', unicodeBidi: 'bidi-override' }
         }),
-        this.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(') || children
+        children || this.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(')
       );
     }
   }, {
