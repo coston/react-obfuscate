@@ -101,14 +101,15 @@ var Obfuscate = function (_Component) {
           obfuscate = _props2.obfuscate,
           headers = _props2.headers,
           children = _props2.children,
-          others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children']);
+          style = _props2.style,
+          others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children', 'style']);
 
-      var style = {
+      var obsStyle = {
         unicodeBidi: 'bidi-override'
       };
 
       if (!children) {
-        style.direction = 'rtl';
+        obsStyle.direction = 'rtl';
       }
 
       return _react2.default.createElement(
@@ -117,7 +118,7 @@ var Obfuscate = function (_Component) {
           onClick: this.handleClick.bind(this),
           href: 'obfuscated'
         }, others, {
-          style: style
+          style: obsStyle
         }),
         children || this.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(')
       );
@@ -147,7 +148,8 @@ Obfuscate.propTypes = {
   facetime: _propTypes.string,
   email: _propTypes.string,
   headers: _propTypes.object,
-  obfuscate: _propTypes.bool
+  obfuscate: _propTypes.bool,
+  style: _propTypes.object
 };
 
 Obfuscate.defaultProps = {

@@ -68,15 +68,16 @@ class Obfuscate extends Component {
       obfuscate,
       headers,
       children,
+      style,
       ...others
     } = this.props
 
-    const style = {
+    const obsStyle = {
       unicodeBidi: 'bidi-override',
     };
 
     if (!children) {
-      style.direction = 'rtl';
+      obsStyle.direction = 'rtl';
     }
 
     return (
@@ -84,7 +85,7 @@ class Obfuscate extends Component {
         onClick={this.handleClick.bind(this)}
         href="obfuscated"
         {...others}
-        style={style}
+        style={obsStyle}
       >
         {
           children ||
@@ -111,6 +112,7 @@ Obfuscate.propTypes = {
   email: string,
   headers: object,
   obfuscate: bool,
+  style: object,
 }
 
 Obfuscate.defaultProps = {
