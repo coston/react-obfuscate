@@ -82,7 +82,7 @@ var Obfuscate = function (_Component) {
         _extends({
           href: createContactLink(tel, sms, facetime, email, headers)
         }, others),
-        tel || sms || facetime || email || children
+        children || tel || sms || facetime || email
       );
     }
   }, {
@@ -101,7 +101,16 @@ var Obfuscate = function (_Component) {
           obfuscate = _props2.obfuscate,
           headers = _props2.headers,
           children = _props2.children,
-          others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children']);
+          style = _props2.style,
+          others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children', 'style']);
+
+      var obsStyle = _extends({}, style || {}, {
+        unicodeBidi: 'bidi-override'
+      });
+
+      if (!children) {
+        obsStyle.direction = 'rtl';
+      }
 
       return _react2.default.createElement(
         'a',
@@ -109,9 +118,9 @@ var Obfuscate = function (_Component) {
           onClick: this.handleClick.bind(this),
           href: 'obfuscated'
         }, others, {
-          style: { direction: 'rtl', unicodeBidi: 'bidi-override' }
+          style: obsStyle
         }),
-        this.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(') || children
+        children || this.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(')
       );
     }
   }, {
@@ -139,7 +148,8 @@ Obfuscate.propTypes = {
   facetime: _propTypes.string,
   email: _propTypes.string,
   headers: _propTypes.object,
-  obfuscate: _propTypes.bool
+  obfuscate: _propTypes.bool,
+  style: _propTypes.object
 };
 
 Obfuscate.defaultProps = {

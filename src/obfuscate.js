@@ -47,7 +47,7 @@ class Obfuscate extends Component {
         href={createContactLink(tel, sms, facetime, email, headers)}
         {...others}
       >
-        {tel || sms || facetime || email || children}
+        {children || tel || sms || facetime || email}
       </a>
     )
   }
@@ -68,18 +68,32 @@ class Obfuscate extends Component {
       obfuscate,
       headers,
       children,
+      style,
       ...others
     } = this.props
+
+    const obsStyle = {
+      ...(style || {}),
+      unicodeBidi: 'bidi-override',
+    };
+
+    if (!children) {
+      obsStyle.direction = 'rtl';
+    }
+
     return (
       <a
         onClick={this.handleClick.bind(this)}
         href="obfuscated"
         {...others}
-        style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}
+        style={obsStyle}
       >
-        {this.reverse(tel || sms || facetime || email)
-          .replace('(', ')')
-          .replace(')', '(') || children}
+        {
+          children ||
+          this.reverse(tel || sms || facetime || email)
+            .replace('(', ')')
+            .replace(')', '(')
+        }
       </a>
     )
   }
@@ -99,6 +113,7 @@ Obfuscate.propTypes = {
   email: string,
   headers: object,
   obfuscate: bool,
+  style: object,
 }
 
 Obfuscate.defaultProps = {
