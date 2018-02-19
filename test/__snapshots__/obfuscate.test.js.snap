@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`React-Obfuscate Renders email with headers 1`] = `
+<a
+  href="obfuscated"
+  onClick={[Function]}
+  style={
+    Object {
+      "direction": "rtl",
+      "unicodeBidi": "bidi-override",
+    }
+  }
+>
+  looc.notsoc@olleh
+</a>
+`;
+
+exports[`React-Obfuscate Renders facetime 1`] = `
+<a
+  href="obfuscated"
+  onClick={[Function]}
+  style={
+    Object {
+      "direction": "rtl",
+      "unicodeBidi": "bidi-override",
+    }
+  }
+>
+  4321-454-502
+</a>
+`;
+
+exports[`React-Obfuscate Renders sms 1`] = `
+<a
+  href="obfuscated"
+  onClick={[Function]}
+  style={
+    Object {
+      "direction": "rtl",
+      "unicodeBidi": "bidi-override",
+    }
+  }
+>
+  4321-454-502
+</a>
+`;
+
+exports[`React-Obfuscate Renders tel 1`] = `
+<a
+  href="obfuscated"
+  onClick={[Function]}
+  style={
+    Object {
+      "direction": "rtl",
+      "unicodeBidi": "bidi-override",
+    }
+  }
+>
+  4321-454-502
+</a>
+`;
+
+exports[`React-Obfuscate Renders without obfuscation 1`] = `
+<a
+  href="sms:205-454-1234"
+>
+  205-454-1234
+</a>
+`;

@@ -20,9 +20,24 @@
     "build": "babel -d dist src",
     "clean": "rm -rf dist && mkdir dist",
     "watch": "babel -w -d dist src",
-    "test": "no tests yet!",
     "preversion": "npm run clean && npm run build",
-    "postpublish": "git push && git push --tag"
+    "postpublish": "git push && git push --tag",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "jest": {
+    "setupFiles": [
+      "./test/jestsetup.js"
+    ],
+    "collectCoverage": true,
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -32,11 +47,19 @@
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
     "core-js": "^2.5.3",
+    "coveralls": "^3.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.3.0",
     "mocha": "^4.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",
-    "react-shallow-output": "^0.2.0"
+    "react-dom": "^16.2.0",
+    "react-shallow-output": "^0.2.0",
+    "react-test-renderer": "^16.2.0"
   },
   "keywords": [
     "react",
