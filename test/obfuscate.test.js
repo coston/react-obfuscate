@@ -58,15 +58,6 @@ describe('React-Obfuscate', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  test('Simulates click', () => {
-    const wrapper = shallow(
-      <Obfuscate tel='205-454-1234' />
-    );
-    wrapper.find('a').simulate('click');
-    expect(wrapper.find('a').prop('href')).toEqual('tel:205-454-1234')
-  });
-
-
 })
 
 
