@@ -75,10 +75,10 @@ class Obfuscate extends Component {
     const obsStyle = {
       ...(style || {}),
       unicodeBidi: 'bidi-override',
-    };
+    }
 
     if (!children) {
-      obsStyle.direction = 'rtl';
+      obsStyle.direction = 'rtl'
     }
 
     return (
@@ -88,12 +88,10 @@ class Obfuscate extends Component {
         {...others}
         style={obsStyle}
       >
-        {
-          children ||
+        {children ||
           this.reverse(tel || sms || facetime || email)
             .replace('(', ')')
-            .replace(')', '(')
-        }
+            .replace(')', '(')}
       </a>
     )
   }
