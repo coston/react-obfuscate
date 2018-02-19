@@ -35,8 +35,7 @@ export default () => (
     Email: <Obfuscate
       email='hello@coston.cool'
       headers={
-        {subject:'Question from the website'},
-        {cc:'friend@coston.cool'}
+        {subject:'Question from the website', cc:'friend@coston.cool'}
       }/>
   </p>
 )
