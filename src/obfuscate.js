@@ -69,6 +69,7 @@ class Obfuscate extends Component {
       headers,
       children,
       style,
+      href,
       ...others
     } = this.props
 
@@ -84,7 +85,7 @@ class Obfuscate extends Component {
     return (
       <a
         onClick={this.handleClick.bind(this)}
-        href="obfuscated"
+        href={href || "obfuscated"}
         {...others}
         style={obsStyle}
       >
