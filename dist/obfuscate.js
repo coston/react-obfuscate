@@ -117,7 +117,7 @@ var Obfuscate = function (_Component) {
         'a',
         _extends({
           onClick: this.handleClick.bind(this),
-          href: href || "obfuscated"
+          href: href || 'obfuscated'
         }, others, {
           style: obsStyle
         }),

@@ -85,7 +85,7 @@ class Obfuscate extends Component {
     return (
       <a
         onClick={this.handleClick.bind(this)}
-        href={href || "obfuscated"}
+        href={href || 'obfuscated'}
         {...others}
         style={obsStyle}
       >
