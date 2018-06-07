@@ -78,7 +78,7 @@ export default () => (
 | facetime  | `string`  | `<optional>` | `null`  | facetime address of the intended recipient          |
 | headers   | `object`  | `<optional>` | `null`  | subject, cc, bcc, body, etc                         |
 | obfuscate | `boolean` | `<optional>` | `true`  | set to false to disable obfuscation                 |
-| href      | `string`  | `<optional>` | `null`  | add custom obfuscated href message, like 'Email Me' |
+| linkText      | `string`  | `<optional>` | `obfuscated`  | add custom obfuscated link text, like 'Email Me' |
 
 ## Development
 

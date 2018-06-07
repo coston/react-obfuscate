@@ -102,8 +102,8 @@ var Obfuscate = function (_Component) {
           headers = _props2.headers,
           children = _props2.children,
           style = _props2.style,
-          href = _props2.href,
-          others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children', 'style', 'href']);
+          linkText = _props2.linkText,
+          others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children', 'style', 'linkText']);
 
       var obsStyle = _extends({}, style || {}, {
         unicodeBidi: 'bidi-override'
@@ -117,7 +117,7 @@ var Obfuscate = function (_Component) {
         'a',
         _extends({
           onClick: this.handleClick.bind(this),
-          href: href || 'obfuscated'
+          href: linkText || 'obfuscated'
         }, others, {
           style: obsStyle
         }),
