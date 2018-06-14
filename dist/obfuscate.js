@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createContactLink = exports.combineHeaders = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -25,15 +24,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var combineHeaders = exports.combineHeaders = function combineHeaders() {
-  var searchParams = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+var combineHeaders = function combineHeaders() {
+  var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-  return Object.keys(searchParams).map(function (key) {
-    return key + '=' + encodeURIComponent(searchParams[key]);
+  return Object.keys(params).map(function (key) {
+    return key + '=' + encodeURIComponent(params[key]);
   }).join('&');
 };
 
-var createContactLink = exports.createContactLink = function createContactLink(tel, sms, facetime, email, headers) {
+var createContactLink = function createContactLink(tel, sms, facetime, email, headers) {
   var link = void 0;
   if (email) {
     link = 'mailto:' + email;
@@ -53,10 +52,15 @@ var createContactLink = exports.createContactLink = function createContactLink(t
 var Obfuscate = function (_Component) {
   _inherits(Obfuscate, _Component);
 
-  function Obfuscate() {
+  function Obfuscate(props) {
     _classCallCheck(this, Obfuscate);
 
-    return _possibleConstructorReturn(this, (Obfuscate.__proto__ || Object.getPrototypeOf(Obfuscate)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Obfuscate.__proto__ || Object.getPrototypeOf(Obfuscate)).call(this, props));
+
+    _this.state = {
+      humanInteraction: false
+    };
+    return _this;
   }
 
   _createClass(Obfuscate, [{
@@ -93,6 +97,8 @@ var Obfuscate = function (_Component) {
   }, {
     key: 'renderObfuscatedLink',
     value: function renderObfuscatedLink() {
+      var _this2 = this;
+
       var _props2 = this.props,
           tel = _props2.tel,
           sms = _props2.sms,
@@ -105,23 +111,29 @@ var Obfuscate = function (_Component) {
           linkText = _props2.linkText,
           others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children', 'style', 'linkText']);
 
-      var obsStyle = _extends({}, style || {}, {
-        unicodeBidi: 'bidi-override'
+      var obsStyle = this.state.humanInteraction === true ? _extends({}, style || {}, {
+        unicodeBidi: 'bidi-override',
+        direction: 'ltr'
+      }) : _extends({}, style || {}, {
+        unicodeBidi: 'bidi-override',
+        direction: 'rtl'
       });
 
-      if (!children) {
-        obsStyle.direction = 'rtl';
-      }
+      var link = function link(state) {
+        return _this2.state.humanInteraction === true ? tel || sms || facetime || email : children || _this2.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(');
+      };
 
       return _react2.default.createElement(
         'a',
         _extends({
           onClick: this.handleClick.bind(this),
+          onFocus: this.handleCopiability.bind(this),
+          onMouseOver: this.handleCopiability.bind(this),
           href: linkText || 'obfuscated'
         }, others, {
           style: obsStyle
         }),
-        children || this.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(')
+        link()
       );
     }
   }, {
@@ -137,6 +149,15 @@ var Obfuscate = function (_Component) {
 
       window.location.href = createContactLink(tel, sms, facetime, email, headers);
     }
+  }, {
+    key: 'handleCopiability',
+    value: function handleCopiability() {
+      this.setState(function (state) {
+        return _extends({}, state, {
+          humanInteraction: true
+        });
+      });
+    }
   }]);
 
   return Obfuscate;
@@ -150,7 +171,8 @@ Obfuscate.propTypes = {
   email: _propTypes.string,
   headers: _propTypes.object,
   obfuscate: _propTypes.bool,
-  style: _propTypes.object
+  style: _propTypes.object,
+  linkText: _propTypes.string
 };
 
 Obfuscate.defaultProps = {

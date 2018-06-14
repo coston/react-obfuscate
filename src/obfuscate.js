@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { node, string, object, bool } from 'prop-types'
 
-export const combineHeaders = (searchParams = {}) => {
-  return Object.keys(searchParams)
-    .map(key => `${key}=${encodeURIComponent(searchParams[key])}`)
+const combineHeaders = (params = {}) => {
+  return Object.keys(params)
+    .map(key => `${key}=${encodeURIComponent(params[key])}`)
     .join('&')
 }
 
-export const createContactLink = (tel, sms, facetime, email, headers) => {
+const createContactLink = (tel, sms, facetime, email, headers) => {
   let link
   if (email) {
     link = `mailto:${email}`
@@ -25,6 +25,12 @@ export const createContactLink = (tel, sms, facetime, email, headers) => {
 }
 
 class Obfuscate extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      humanInteraction: false,
+    }
+  }
   render() {
     return this.props.obfuscate
       ? this.renderObfuscatedLink()
@@ -73,26 +79,37 @@ class Obfuscate extends Component {
       ...others
     } = this.props
 
-    const obsStyle = {
-      ...(style || {}),
-      unicodeBidi: 'bidi-override',
-    }
+    const obsStyle =
+      this.state.humanInteraction === true
+        ? {
+            ...(style || {}),
+            unicodeBidi: 'bidi-override',
+            direction: 'ltr',
+          }
+        : {
+            ...(style || {}),
+            unicodeBidi: 'bidi-override',
+            direction: 'rtl',
+          }
 
-    if (!children) {
-      obsStyle.direction = 'rtl'
-    }
+    let link = state =>
+      this.state.humanInteraction === true
+        ? tel || sms || facetime || email
+        : children ||
+          this.reverse(tel || sms || facetime || email)
+            .replace('(', ')')
+            .replace(')', '(')
 
     return (
       <a
         onClick={this.handleClick.bind(this)}
+        onFocus={this.handleCopiability.bind(this)}
+        onMouseOver={this.handleCopiability.bind(this)}
         href={linkText || 'obfuscated'}
         {...others}
         style={obsStyle}
       >
-        {children ||
-          this.reverse(tel || sms || facetime || email)
-            .replace('(', ')')
-            .replace(')', '(')}
+        {link()}
       </a>
     )
   }
@@ -101,6 +118,12 @@ class Obfuscate extends Component {
     event.preventDefault()
     const { tel, sms, facetime, email, headers } = this.props
     window.location.href = createContactLink(tel, sms, facetime, email, headers)
+  }
+  handleCopiability() {
+    this.setState(state => ({
+      ...state,
+      humanInteraction: true,
+    }))
   }
 }
 
@@ -113,6 +136,7 @@ Obfuscate.propTypes = {
   headers: object,
   obfuscate: bool,
   style: object,
+  linkText: string,
 }
 
 Obfuscate.defaultProps = {
