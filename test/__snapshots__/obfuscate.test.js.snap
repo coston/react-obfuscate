@@ -4,6 +4,7 @@ exports[`React-Obfuscate Renders email with headers 1`] = `
 <a
   href="obfuscated"
   onClick={[Function]}
+  onMouseOver={[Function]}
   style={
     Object {
       "direction": "rtl",
@@ -19,6 +20,7 @@ exports[`React-Obfuscate Renders facetime 1`] = `
 <a
   href="obfuscated"
   onClick={[Function]}
+  onMouseOver={[Function]}
   style={
     Object {
       "direction": "rtl",
@@ -34,6 +36,7 @@ exports[`React-Obfuscate Renders sms 1`] = `
 <a
   href="obfuscated"
   onClick={[Function]}
+  onMouseOver={[Function]}
   style={
     Object {
       "direction": "rtl",
@@ -49,6 +52,7 @@ exports[`React-Obfuscate Renders tel 1`] = `
 <a
   href="obfuscated"
   onClick={[Function]}
+  onMouseOver={[Function]}
   style={
     Object {
       "direction": "rtl",
