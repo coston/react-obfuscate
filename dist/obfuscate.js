@@ -111,7 +111,7 @@ var Obfuscate = function (_Component) {
           linkText = _props2.linkText,
           others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children', 'style', 'linkText']);
 
-      var obsStyle = this.state.humanInteraction === true ? _extends({}, style || {}, {
+      var obsStyle = this.state.humanInteraction === true || children ? _extends({}, style || {}, {
         unicodeBidi: 'bidi-override',
         direction: 'ltr'
       }) : _extends({}, style || {}, {
@@ -120,7 +120,7 @@ var Obfuscate = function (_Component) {
       });
 
       var link = function link(state) {
-        return _this2.state.humanInteraction === true ? tel || sms || facetime || email : children || _this2.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(');
+        return _this2.state.humanInteraction === true ? children || tel || sms || facetime || email : children || _this2.reverse(tel || sms || facetime || email).replace('(', ')').replace(')', '(');
       };
 
       return _react2.default.createElement(

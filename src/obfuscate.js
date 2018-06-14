@@ -80,7 +80,7 @@ class Obfuscate extends Component {
     } = this.props
 
     const obsStyle =
-      this.state.humanInteraction === true
+      this.state.humanInteraction === true || children
         ? {
             ...(style || {}),
             unicodeBidi: 'bidi-override',
@@ -94,7 +94,7 @@ class Obfuscate extends Component {
 
     let link = state =>
       this.state.humanInteraction === true
-        ? tel || sms || facetime || email
+        ? children || tel || sms || facetime || email
         : children ||
           this.reverse(tel || sms || facetime || email)
             .replace('(', ')')
