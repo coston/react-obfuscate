@@ -28,7 +28,7 @@ class Obfuscate extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isHovered: false,
+      humanInteraction: false,
     }
   }
   render() {
@@ -80,7 +80,7 @@ class Obfuscate extends Component {
     } = this.props
 
     const obsStyle =
-      this.state.isHovered === true
+      this.state.humanInteraction === true
         ? {
             ...(style || {}),
             unicodeBidi: 'bidi-override',
@@ -93,7 +93,7 @@ class Obfuscate extends Component {
           }
 
     let link = state =>
-      this.state.isHovered === true
+      this.state.humanInteraction === true
         ? tel || sms || facetime || email
         : children ||
           this.reverse(tel || sms || facetime || email)
@@ -103,7 +103,8 @@ class Obfuscate extends Component {
     return (
       <a
         onClick={this.handleClick.bind(this)}
-        onMouseOver={this.handleCopy.bind(this)}
+        onFocus={this.handleCopiability.bind(this)}
+        onMouseOver={this.handleCopiability.bind(this)}
         href={linkText || 'obfuscated'}
         {...others}
         style={obsStyle}
@@ -118,10 +119,10 @@ class Obfuscate extends Component {
     const { tel, sms, facetime, email, headers } = this.props
     window.location.href = createContactLink(tel, sms, facetime, email, headers)
   }
-  handleCopy() {
+  handleCopiability() {
     this.setState(state => ({
       ...state,
-      isHovered: true,
+      humanInteraction: true,
     }))
   }
 }
