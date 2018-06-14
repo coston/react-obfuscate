@@ -105,6 +105,7 @@ class Obfuscate extends Component {
         onClick={this.handleClick.bind(this)}
         onFocus={this.handleCopiability.bind(this)}
         onMouseOver={this.handleCopiability.bind(this)}
+        onContextMenu={this.handleCopiability.bind(this)}
         href={linkText || 'obfuscated'}
         {...others}
         style={obsStyle}
