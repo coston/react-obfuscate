@@ -99,11 +99,6 @@ react-obfuscate is awesome thanks to these community members:
 
 Please help make this react component better. Submit any issue and/or make a pull request!
 
-### To Do
-
-* Write some good tests
-* Convert clipboard text left to right
-
 ## License
 
 Licensed under the MIT license.
