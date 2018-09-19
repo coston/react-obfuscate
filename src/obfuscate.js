@@ -85,11 +85,13 @@ class Obfuscate extends Component {
             ...(style || {}),
             unicodeBidi: 'bidi-override',
             direction: 'ltr',
+            display: 'inline-block',
           }
         : {
             ...(style || {}),
             unicodeBidi: 'bidi-override',
             direction: 'rtl',
+            display: 'inline-block',
           }
 
     let link = state =>

@@ -113,10 +113,12 @@ var Obfuscate = function (_Component) {
 
       var obsStyle = this.state.humanInteraction === true || children ? _extends({}, style || {}, {
         unicodeBidi: 'bidi-override',
-        direction: 'ltr'
+        direction: 'ltr',
+        display: 'inline-block'
       }) : _extends({}, style || {}, {
         unicodeBidi: 'bidi-override',
-        direction: 'rtl'
+        direction: 'rtl',
+        display: 'inline-block'
       });
 
       var link = function link(state) {
