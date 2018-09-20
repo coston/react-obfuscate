@@ -83,15 +83,13 @@ class Obfuscate extends Component {
       this.state.humanInteraction === true || children
         ? {
             ...(style || {}),
-            unicodeBidi: 'bidi-override',
+            unicodeBidi: 'isolate-override',
             direction: 'ltr',
-            display: 'inline-block',
           }
         : {
             ...(style || {}),
-            unicodeBidi: 'bidi-override',
+            unicodeBidi: 'isolate-override',
             direction: 'rtl',
-            display: 'inline-block',
           }
 
     let link = state =>
