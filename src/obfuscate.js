@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { node, string, object, bool } from 'prop-types'
 
 const combineHeaders = (params = {}) => {
   return Object.keys(params)
@@ -32,9 +31,9 @@ class Obfuscate extends Component {
     }
   }
   render() {
-    return this.props.obfuscate
-      ? this.renderObfuscatedLink()
-      : this.renderLink()
+    return this.props.obfuscate === false
+      ? this.renderLink()
+      : this.renderObfuscatedLink()
   }
 
   renderLink() {
@@ -126,22 +125,6 @@ class Obfuscate extends Component {
       humanInteraction: true,
     }))
   }
-}
-
-Obfuscate.propTypes = {
-  children: node,
-  tel: string,
-  sms: string,
-  facetime: string,
-  email: string,
-  headers: object,
-  obfuscate: bool,
-  style: object,
-  linkText: string,
-}
-
-Obfuscate.defaultProps = {
-  obfuscate: true,
 }
 
 export default Obfuscate
