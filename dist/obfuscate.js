@@ -110,10 +110,12 @@ var Obfuscate = function (_Component) {
           others = _objectWithoutProperties(_props2, ['tel', 'sms', 'facetime', 'email', 'obfuscate', 'headers', 'children', 'style', 'linkText']);
 
       var obsStyle = this.state.humanInteraction === true || children ? _extends({}, style || {}, {
-        unicodeBidi: 'isolate-override',
+        unicodeBidi: 'bidi-override',
+        display: 'inline-block',
         direction: 'ltr'
       }) : _extends({}, style || {}, {
-        unicodeBidi: 'isolate-override',
+        unicodeBidi: 'bidi-override',
+        display: 'inline-block',
         direction: 'rtl'
       });
 

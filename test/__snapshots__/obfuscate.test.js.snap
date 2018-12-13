@@ -10,7 +10,8 @@ exports[`React-Obfuscate Renders email with headers 1`] = `
   style={
     Object {
       "direction": "rtl",
-      "unicodeBidi": "isolate-override",
+      "display": "inline-block",
+      "unicodeBidi": "bidi-override",
     }
   }
 >
@@ -28,7 +29,8 @@ exports[`React-Obfuscate Renders facetime 1`] = `
   style={
     Object {
       "direction": "rtl",
-      "unicodeBidi": "isolate-override",
+      "display": "inline-block",
+      "unicodeBidi": "bidi-override",
     }
   }
 >
@@ -46,7 +48,8 @@ exports[`React-Obfuscate Renders sms 1`] = `
   style={
     Object {
       "direction": "rtl",
-      "unicodeBidi": "isolate-override",
+      "display": "inline-block",
+      "unicodeBidi": "bidi-override",
     }
   }
 >
@@ -64,7 +67,8 @@ exports[`React-Obfuscate Renders tel 1`] = `
   style={
     Object {
       "direction": "rtl",
-      "unicodeBidi": "isolate-override",
+      "display": "inline-block",
+      "unicodeBidi": "bidi-override",
     }
   }
 >
