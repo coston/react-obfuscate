@@ -1,65 +1,39 @@
 import React from 'react'
 import Obfuscate from '../src/obfuscate.js'
 
-describe('React-Obfuscate', () => {
+describe('obfuscate', () => {
   
-  // test('renders the document title via Helmet', () => {
-  //   const wrapper = shallow(
-  //     <PageTitle name="Amazing Page" />
-  //   );
-  //   console.log(wrapper.find(Helmet))
-  //   expect(wrapper.find(Helmet).length).toBe(1);
-  //   expect(wrapper.find(Helmet).prop('title')).toEqual('Amazing Page')
-  // });
-
-  // test('renders the document title via Helmet', () => {
-  //   const wrapper = shallow(
-  //     <PageTitle name="Amazing Page" />
-  //   );
-  //   console.log(wrapper.find(Helmet))
-  //   expect(wrapper.find(Helmet).length).toBe(1);
-  //   expect(wrapper.find(Helmet).prop('title')).toEqual('Amazing Page')
-  // });
-
-  test('Renders email with headers', () => {
-    const wrapper = shallow(
-      <Obfuscate
-      email='hello@coston.cool'
-      headers={{subject:'Question from the website', cc:'friend@coston.cool', bcc: 'comrade@coston.cool', body: 'Great library'}}/>
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  test('Renders tel', () => {
+  test('renders an ofuscated href', () => {
     const wrapper = shallow(
       <Obfuscate tel='205-454-1234' />
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-  
-  test('Renders facetime', () => {
-    const wrapper = shallow(
-      <Obfuscate facetime='205-454-1234' />
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.prop('href')).toEqual('obfuscated');
+});
 
-  test('Renders sms', () => {
-    const wrapper = shallow(
-      <Obfuscate sms='205-454-1234' />
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+test('renders an unofuscated href when obfuscate prop equals false', () => {
+  const wrapper = shallow(
+    <Obfuscate obfuscate={false} sms='205-454-1234' />
+  );
+  expect(wrapper.find('a').text()).toBe("205-454-1234")
+  expect(wrapper.prop('href')).toEqual('sms:205-454-1234');
+});
 
-  test('Renders without obfuscation', () => {
-    const wrapper = shallow(
-      <Obfuscate obfuscate={false} sms='205-454-1234' />
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+test('renders an unofuscated child element left to right when obfuscate prop equals false', () => {
+  const wrapper = shallow(
+    <Obfuscate obfuscate={false} facetime='205-454-1234' />
+  );
+  expect(wrapper.find('a').text()).toBe("205-454-1234")
+  expect(wrapper.prop('href')).toEqual('facetime:205-454-1234');
+});
 
+test('renders an unofuscated child element right to left when obfuscated', () => {
+  const wrapper = shallow(
+    <Obfuscate obfuscate={true} tel='205-454-1234' />
+  );
+  expect(wrapper.find('a').text()).toBe("4321-454-502")
+  expect(wrapper.prop('href')).toEqual('obfuscated');
+
+});
 })
 
-
-
-
+ 
