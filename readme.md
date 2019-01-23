@@ -36,10 +36,12 @@ export default () => (
     <br />
     Email:{' '}
     <Obfuscate
-      email="hello@coston.cool"
+      email="coston.perkins@ua.edu"
       headers={{
-        subject: 'Question from the website',
-        cc: 'friend@coston.cool',
+        cc: 'dade@zero-cool.af',
+        bcc: 'smith@machina.net',
+        subject: 'react-obfuscate',
+        body: 'Down with the machines!'
       }}
     />
   </p>
@@ -81,7 +83,20 @@ export default () => (
 ## Development
 
 ```bash
-npm run build
+npm run dev
+```
+
+## Using consecutive Obfuscate/inline elements
+react-obfuscate is an inline element. Using consecutive inline elements inside a block element causes an issue with the `bidi-override` reversal on Chrome. To prevent this,
+add any text between the elements, wrap `<Obfuscate/>` with another element (like `<span>`), or add `style={{display:'inline-block'}}` to prevent any issues.
+
+Example Case: 
+```js
+<address>
+	<Obfuscate style={{display:'inline-block'}} email="-mail@mailbox.org" />
+	<br />
+	<Obfuscate style={{display:'inline-block'}} tel="+69 111 222 333" />
+</address>
 ```
 
 ## Contributors
