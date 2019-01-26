@@ -78,7 +78,7 @@ export default () => (
 | facetime  | `string`  | `<optional>` | `null`  | facetime address of the intended recipient          |
 | headers   | `object`  | `<optional>` | `null`  | subject, cc, bcc, body, etc                         |
 | obfuscate | `boolean` | `<optional>` | `true`  | set to false to disable obfuscation                 |
-| linkText      | `string`  | `<optional>` | `obfuscated`  | add custom obfuscated link text, like 'Email Me' |
+| linkText  | `string`  | `<optional>` | `obfuscated`  | add custom obfuscated link text, like 'Email Me' |
 
 ## Development
 
@@ -90,7 +90,7 @@ npm run dev
 react-obfuscate is an inline element. Using consecutive inline elements inside a block element causes an issue with the `bidi-override` reversal on Chrome. To prevent this,
 add any text between the elements, wrap `<Obfuscate/>` with another element (like `<span>`), or add `style={{display:'inline-block'}}` to prevent any issues.
 
-Example Case: 
+Example Case:
 ```js
 <address>
 	<Obfuscate style={{display:'inline-block'}} email="-mail@mailbox.org" />

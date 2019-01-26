@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class Obfuscate extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       humanInteraction: false,
     }
@@ -11,14 +12,17 @@ export default class Obfuscate extends Component {
   // Convert contact information to contact URL scheme
   createContactLink(props) {
     let link
+
     // Combine email header parameters for use with email
     const combineHeaders = (params = {}) => {
       return Object.keys(params)
         .map(key => `${key}=${encodeURIComponent(params[key])}`)
         .join('&')
     }
+
     if (props.email) {
       link = `mailto:${props.email}`
+
       if (props.headers) {
         link += `?${combineHeaders(props.headers)}`
       }
@@ -31,6 +35,7 @@ export default class Obfuscate extends Component {
     } else {
       link = props.children
     }
+
     return link
   }
 
