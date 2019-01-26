@@ -36,4 +36,14 @@ describe('obfuscate', () => {
     expect(wrapper.find('a').text()).toBe("4321-454-502")
     expect(wrapper.prop('href')).toEqual('obfuscated')
   })
+
+  test('renders a custom component', () => {
+    const wrapper = shallow(
+      <Obfuscate component="span" viewOnly tel='205-454-1234' />
+    )
+
+    expect(wrapper.find('span').text()).toBe("4321-454-502")
+    expect(wrapper.prop('href')).toBeUndefined()
+    expect(wrapper.prop('onClick')).toBeUndefined()
+  })
 })

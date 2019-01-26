@@ -70,15 +70,17 @@ export default () => (
 
 ## Options
 
-| Prop      | Type      | Argument     | Default | Description                                         |
-| --------- | --------- | ------------ | ------- | --------------------------------------------------- |
-| email     | `string`  | `<optional>` | `null`  | email address of the intended recipient             |
-| tel       | `string`  | `<optional>` | `null`  | telephone number of the intended recipient          |
-| sms       | `string`  | `<optional>` | `null`  | sms number of the intended recipient                |
-| facetime  | `string`  | `<optional>` | `null`  | facetime address of the intended recipient          |
-| headers   | `object`  | `<optional>` | `null`  | subject, cc, bcc, body, etc                         |
-| obfuscate | `boolean` | `<optional>` | `true`  | set to false to disable obfuscation                 |
-| linkText  | `string`  | `<optional>` | `obfuscated`  | add custom obfuscated link text, like 'Email Me' |
+| Prop      | Type        | Argument     | Default | Description                                             |
+| --------- | ----------- | ------------ | ------- | ------------------------------------------------------- |
+| email     | `string`    | `<optional>` | `null`  | email address of the intended recipient                 |
+| tel       | `string`    | `<optional>` | `null`  | telephone number of the intended recipient              |
+| sms       | `string`    | `<optional>` | `null`  | sms number of the intended recipient                    |
+| facetime  | `string`    | `<optional>` | `null`  | facetime address of the intended recipient              |
+| headers   | `object`    | `<optional>` | `null`  | subject, cc, bcc, body, etc                             |
+| obfuscate | `boolean`   | `<optional>` | `true`  | set to false to disable obfuscation                     |
+| linkText  | `string`    | `<optional>` | `obfuscated` | add custom obfuscated link text, like 'Email Me'   |
+| component | `component` | `<optional>` | `'a'`   | custom component to render instead of a standard anchor |
+| viewOnly  | `boolean`   | `<optional>` | `false` | skip passing `href` and `onClick` to rendered component |
 
 ## Development
 

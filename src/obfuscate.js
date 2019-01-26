@@ -62,6 +62,7 @@ export default class Obfuscate extends Component {
   render() {
     const { humanInteraction } = this.state
     const {
+      component: Component = 'a',
       children,
       tel,
       sms,
@@ -70,6 +71,7 @@ export default class Obfuscate extends Component {
       headers,
       obfuscate,
       linkText,
+      viewOnly,
       style,
       ...others
     } = this.props
@@ -88,24 +90,25 @@ export default class Obfuscate extends Component {
         ? propsList
         : this.reverse(propsList)
 
-    const hrefLink = this.createContactLink(this.props)
-
-    return (
-      <a
-        onClick={this.handleClick.bind(this)}
-        onFocus={this.handleCopiability.bind(this)}
-        onMouseOver={this.handleCopiability.bind(this)}
-        onContextMenu={this.handleCopiability.bind(this)}
-        href={
-          humanInteraction === true || obfuscate === false
-            ? hrefLink
-            : linkText || 'obfuscated'
+    const clickProps = viewOnly
+      ? {}
+      : {
+          href:
+            humanInteraction === true || obfuscate === false
+              ? this.createContactLink(this.props)
+              : linkText || 'obfuscated',
+          onClick: this.handleClick.bind(this),
         }
-        {...others}
-        style={obsStyle}
-      >
-        {link}
-      </a>
-    )
+
+    const props = {
+      onFocus: this.handleCopiability.bind(this),
+      onMouseOver: this.handleCopiability.bind(this),
+      onContextMenu: this.handleCopiability.bind(this),
+      ...clickProps,
+      ...others,
+      style: obsStyle,
+    }
+
+    return <Component {...props}>{link}</Component>
   }
 }
