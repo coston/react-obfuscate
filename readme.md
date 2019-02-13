@@ -101,7 +101,7 @@ Example Case:
 ```
 
 ## Obfuscating custom elements with the `element` prop
-With the `element` prop, users can obfuscate any element, like paragraphs or headers. Changing the dom element also removes the href and onClick props. Custom styling is required due handling of right-to-left direction styles. Usually, adding `style={{textAlign:'left'}}` will suffice.
+With the `element` prop, users can obfuscate any element, like paragraphs or headers. Changing the dom element also removes the href and onClick props. Custom styling is required due to handling of right-to-left direction styles. Usually, adding `style={{textAlign:'left'}}` will suffice.
 
 Example Case:
 ```js
