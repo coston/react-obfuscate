@@ -79,8 +79,7 @@ export default () => (
 | headers   | `object`    | `<optional>` | `null`  | subject, cc, bcc, body, etc                             |
 | obfuscate | `boolean`   | `<optional>` | `true`  | set to false to disable obfuscation                     |
 | linkText  | `string`    | `<optional>` | `obfuscated` | add custom obfuscated link text, like 'Email Me'   |
-| component | `component` | `<optional>` | `'a'`   | custom component to render instead of a standard anchor |
-| viewOnly  | `boolean`   | `<optional>` | `false` | skip passing `href` and `onClick` to rendered component |
+| element | `string` | `<optional>` | `'a'`   | custom element to render instead of an `a` tag |
 
 ## Development
 
@@ -88,7 +87,7 @@ export default () => (
 npm run dev
 ```
 
-## Using consecutive Obfuscate/inline elements
+## Consecutive Obfuscate/inline elements
 react-obfuscate is an inline element. Using consecutive inline elements inside a block element causes an issue with the `bidi-override` reversal on Chrome. To prevent this,
 add any text between the elements, wrap `<Obfuscate/>` with another element (like `<span>`), or add `style={{display:'inline-block'}}` to prevent any issues.
 
@@ -101,6 +100,18 @@ Example Case:
 </address>
 ```
 
+## Obfuscating custom elements with the `element` prop
+With the `element` prop, users can obfuscate any element, like paragraphs or headers. Changing the dom element also removes the href and onClick props. Custom styling is required due handling of right-to-left direction styles. Usually, adding `style={{textAlign:'left'}}` will suffice.
+
+Example Case:
+```js
+<Obfuscate 
+  element='p'
+  style={{textAlign:'left'}}>
+  This paragraph is more secret than others.
+</Obfuscate>
+```
+
 ## Contributors
 
 react-obfuscate is awesome thanks to these community members:
@@ -109,6 +120,7 @@ react-obfuscate is awesome thanks to these community members:
 * [bostrom](https://github.com/bostrom)
 * [timmygee](https://github.com/timmygee)
 * [mic](https://github.com/mic)
+* [ravinggenius](https://github.com/ravinggenius)
 
 ## Contributing
 
