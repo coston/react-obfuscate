@@ -37,9 +37,9 @@ describe('obfuscate', () => {
     expect(wrapper.prop('href')).toEqual('obfuscated')
   })
 
-  test('renders a custom component', () => {
+  test('renders a custom element', () => {
     const wrapper = shallow(
-      <Obfuscate component="span" viewOnly tel='205-454-1234' />
+      <Obfuscate element="span" viewOnly tel='205-454-1234' />
     )
 
     expect(wrapper.find('span').text()).toBe("4321-454-502")
