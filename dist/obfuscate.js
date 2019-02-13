@@ -11,8 +11,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -109,6 +107,8 @@ function (_Component) {
       var humanInteraction = this.state.humanInteraction;
 
       var _this$props = this.props,
+          _this$props$element = _this$props.element,
+          Element = _this$props$element === void 0 ? 'a' : _this$props$element,
           children = _this$props.children,
           tel = _this$props.tel,
           sms = _this$props.sms,
@@ -118,7 +118,7 @@ function (_Component) {
           obfuscate = _this$props.obfuscate,
           linkText = _this$props.linkText,
           style = _this$props.style,
-          others = _objectWithoutProperties(_this$props, ["children", "tel", "sms", "facetime", "email", "headers", "obfuscate", "linkText", "style"]);
+          others = _objectWithoutProperties(_this$props, ["element", "children", "tel", "sms", "facetime", "email", "headers", "obfuscate", "linkText", "style"]);
 
       var propsList = children || tel || sms || facetime || email;
 
@@ -128,16 +128,20 @@ function (_Component) {
       });
 
       var link = humanInteraction === true || obfuscate === false ? propsList : this.reverse(propsList);
-      var hrefLink = this.createContactLink(this.props);
-      return _react.default.createElement("a", _extends({
-        onClick: this.handleClick.bind(this),
+      var clickProps = Element === 'a' ? {
+        href: humanInteraction === true || obfuscate === false ? this.createContactLink(this.props) : linkText || 'obfuscated',
+        onClick: this.handleClick.bind(this)
+      } : {};
+
+      var props = _objectSpread({
         onFocus: this.handleCopiability.bind(this),
         onMouseOver: this.handleCopiability.bind(this),
-        onContextMenu: this.handleCopiability.bind(this),
-        href: humanInteraction === true || obfuscate === false ? hrefLink : linkText || 'obfuscated'
-      }, others, {
+        onContextMenu: this.handleCopiability.bind(this)
+      }, clickProps, others, {
         style: obsStyle
-      }), link);
+      });
+
+      return _react.default.createElement(Element, props, link);
     }
   }]);
 

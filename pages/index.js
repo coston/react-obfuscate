@@ -64,7 +64,7 @@ class App extends React.Component {
             <LiveProvider
               code={headerCode}
               scope={{
-                Obfuscate,
+                Obfuscate
               }}
             >
               <div
@@ -162,6 +162,12 @@ const headerCode = `
       tel="(202) 224-5744"
     >
       Call me!
+    </Obfuscate>
+    <br />
+    <Obfuscate 
+      element="p"
+      style={{textAlign:'left'}}>
+      Bonus: Obfuscate custom elements, like paragraphs or headers.
     </Obfuscate>
   </p>
 </div>

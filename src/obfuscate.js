@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class Obfuscate extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       humanInteraction: false,
     }
@@ -11,14 +12,17 @@ export default class Obfuscate extends Component {
   // Convert contact information to contact URL scheme
   createContactLink(props) {
     let link
+
     // Combine email header parameters for use with email
     const combineHeaders = (params = {}) => {
       return Object.keys(params)
         .map(key => `${key}=${encodeURIComponent(params[key])}`)
         .join('&')
     }
+
     if (props.email) {
       link = `mailto:${props.email}`
+
       if (props.headers) {
         link += `?${combineHeaders(props.headers)}`
       }
@@ -31,6 +35,7 @@ export default class Obfuscate extends Component {
     } else {
       link = props.children
     }
+
     return link
   }
 
@@ -57,6 +62,7 @@ export default class Obfuscate extends Component {
   render() {
     const { humanInteraction } = this.state
     const {
+      element: Element = 'a',
       children,
       tel,
       sms,
@@ -83,24 +89,26 @@ export default class Obfuscate extends Component {
         ? propsList
         : this.reverse(propsList)
 
-    const hrefLink = this.createContactLink(this.props)
+    const clickProps =
+      Element === 'a'
+        ? {
+            href:
+              humanInteraction === true || obfuscate === false
+                ? this.createContactLink(this.props)
+                : linkText || 'obfuscated',
+            onClick: this.handleClick.bind(this),
+          }
+        : {}
 
-    return (
-      <a
-        onClick={this.handleClick.bind(this)}
-        onFocus={this.handleCopiability.bind(this)}
-        onMouseOver={this.handleCopiability.bind(this)}
-        onContextMenu={this.handleCopiability.bind(this)}
-        href={
-          humanInteraction === true || obfuscate === false
-            ? hrefLink
-            : linkText || 'obfuscated'
-        }
-        {...others}
-        style={obsStyle}
-      >
-        {link}
-      </a>
-    )
+    const props = {
+      onFocus: this.handleCopiability.bind(this),
+      onMouseOver: this.handleCopiability.bind(this),
+      onContextMenu: this.handleCopiability.bind(this),
+      ...clickProps,
+      ...others,
+      style: obsStyle,
+    }
+
+    return <Element {...props}>{link}</Element>
   }
 }
