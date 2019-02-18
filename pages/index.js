@@ -154,21 +154,6 @@ const headerCode = `
     <br />
     ➡️ facetime: 
     <Obfuscate facetime="202.224.5744" />
-    <br />
-    ➡️ Children and Styles:
-    <Obfuscate 
-      style={{color: 'red', 
-      fontWeight:'Bold'}} 
-      tel="(202) 224-5744"
-    >
-      Call me!
-    </Obfuscate>
-    <br />
-    <Obfuscate 
-      element="p"
-      style={{textAlign:'left'}}>
-      Bonus: Obfuscate custom elements, like paragraphs or headers.
-    </Obfuscate>
   </p>
 </div>
 `.trim()
