@@ -122,6 +122,8 @@ react-obfuscate is awesome thanks to these community members:
 * [timmygee](https://github.com/timmygee)
 * [mic](https://github.com/mic)
 * [ravinggenius](https://github.com/ravinggenius)
+* [charlesbdudley](https://github.com/charlesbdudley)
+
 
 ## Contributing
 
