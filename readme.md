@@ -70,16 +70,17 @@ export default () => (
 
 ## Options
 
-| Prop      | Type        | Argument     | Default | Description                                             |
-| --------- | ----------- | ------------ | ------- | ------------------------------------------------------- |
-| email     | `string`    | `<optional>` | `null`  | email address of the intended recipient                 |
-| tel       | `string`    | `<optional>` | `null`  | telephone number of the intended recipient              |
-| sms       | `string`    | `<optional>` | `null`  | sms number of the intended recipient                    |
-| facetime  | `string`    | `<optional>` | `null`  | facetime address of the intended recipient              |
-| headers   | `object`    | `<optional>` | `null`  | subject, cc, bcc, body, etc                             |
-| obfuscate | `boolean`   | `<optional>` | `true`  | set to false to disable obfuscation                     |
-| linkText  | `string`    | `<optional>` | `obfuscated` | add custom obfuscated link text, like 'Email Me'   |
-| element | `string` | `<optional>` | `'a'`   | custom element to render instead of an `a` tag |
+| Prop      | Type        | Argument     | Default      | Description                                                    |
+| --------- | ----------- | ------------ | ------------ | -------------------------------------------------------------- |
+| email     | `string`    | `<optional>` | `null`       | email address of the intended recipient                        |
+| tel       | `string`    | `<optional>` | `null`       | telephone number of the intended recipient                     |
+| sms       | `string`    | `<optional>` | `null`       | sms number of the intended recipient                           |
+| facetime  | `string`    | `<optional>` | `null`       | facetime address of the intended recipient                     |
+| headers   | `object`    | `<optional>` | `null`       | subject, cc, bcc, body, etc                                    |
+| obfuscate | `boolean`   | `<optional>` | `true`       | set to false to disable obfuscation                            |
+| linkText  | `string`    | `<optional>` | `obfuscated` | add custom obfuscated link text, like 'Email Me'               |
+| element   | `string`    | `<optional>` | `'a'`        | custom element to render instead of an `a` tag                 |
+| onClick   | `function`  | `<optional>` | `null`       | called prior to setting location (e.g. for analytics tracking) |
 
 ## Development
 

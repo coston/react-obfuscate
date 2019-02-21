@@ -40,7 +40,16 @@ export default class Obfuscate extends Component {
   }
 
   handleClick(event) {
+    const { onClick } = this.props
+
     event.preventDefault()
+
+    // Allow instantiator to provide an onClick method to be called
+    // before we change location (e.g. for analytics tracking)
+    if (onClick && typeof onClick === 'function') {
+      onClick()
+    }
+    
     window.location.href = this.createContactLink(this.props)
   }
 
@@ -104,8 +113,8 @@ export default class Obfuscate extends Component {
       onFocus: this.handleCopiability.bind(this),
       onMouseOver: this.handleCopiability.bind(this),
       onContextMenu: this.handleCopiability.bind(this),
-      ...clickProps,
       ...others,
+      ...clickProps,
       style: obsStyle,
     }
 
