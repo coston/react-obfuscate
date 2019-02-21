@@ -86,7 +86,14 @@ function (_Component) {
   }, {
     key: "handleClick",
     value: function handleClick(event) {
-      event.preventDefault();
+      var onClick = this.props.onClick;
+      event.preventDefault(); // Allow instantiator to provide an onClick method to be called
+      // before we change location (e.g. for analytics tracking)
+
+      if (onClick && typeof onClick === 'function') {
+        onClick();
+      }
+
       window.location.href = this.createContactLink(this.props);
     }
   }, {
@@ -137,7 +144,7 @@ function (_Component) {
         onFocus: this.handleCopiability.bind(this),
         onMouseOver: this.handleCopiability.bind(this),
         onContextMenu: this.handleCopiability.bind(this)
-      }, clickProps, others, {
+      }, others, clickProps, {
         style: obsStyle
       });
 
