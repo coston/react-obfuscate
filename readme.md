@@ -12,7 +12,7 @@ Live demo: [react-obfuscate.coston.io](https://react-obfuscate.coston.io)
 
 ## How it works
 
-The user passes the contact link as an `email, tel, sms, or facetime` prop. The component obfuscates href data until an onClick event. Links are given their proper URL schemes (mailto, facetime, etc.) The link is rendered in reverse in the dom, but reversed again with css. This making the link useless for spammers, but user friendly on screen.
+The user passes the contact link as an `email, tel, sms, or facetime` prop. The component obfuscates href data until a hover, click, or focus event. Links are given their proper URL schemes (mailto, facetime, etc.) The link is rendered in reverse in the dom, but reversed again with css. This making the link useless for spammers, but user friendly on screen.
 
 ## Why
 
@@ -78,7 +78,7 @@ export default () => (
 | facetime  | `string`    | `<optional>` | `null`       | facetime address of the intended recipient                     |
 | headers   | `object`    | `<optional>` | `null`       | subject, cc, bcc, body, etc                                    |
 | obfuscate | `boolean`   | `<optional>` | `true`       | set to false to disable obfuscation                            |
-| linkText  | `string`    | `<optional>` | `obfuscated` | add custom obfuscated link text, like 'Email Me'               |
+| linkText  | `string`    | `<optional>` | `obfuscated` | add custom pre-interaction href attribute placeholder text               |
 | element   | `string`    | `<optional>` | `'a'`        | custom element to render instead of an `a` tag                 |
 | onClick   | `function`  | `<optional>` | `null`       | called prior to setting location (e.g. for analytics tracking) |
 
