@@ -9,8 +9,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -18,6 +16,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -77,8 +77,10 @@ function (_Component) {
         link = "sms:".concat(props.sms);
       } else if (props.facetime) {
         link = "facetime:".concat(props.facetime);
-      } else {
+      } else if (_typeof(props.children) !== 'object') {
         link = props.children;
+      } else {
+        return '/';
       }
 
       return link;
@@ -105,8 +107,10 @@ function (_Component) {
     }
   }, {
     key: "reverse",
-    value: function reverse(s) {
-      return s.split('').reverse().join('').replace('(', ')').replace(')', '(');
+    value: function reverse(string) {
+      if (typeof string !== 'undefined') {
+        return string.split('').reverse().join('').replace('(', ')').replace(')', '(');
+      }
     }
   }, {
     key: "render",
@@ -134,7 +138,8 @@ function (_Component) {
         direction: humanInteraction === true || obfuscate === false ? 'ltr' : 'rtl'
       });
 
-      var link = humanInteraction === true || obfuscate === false ? propsList : this.reverse(propsList);
+      var link = humanInteraction === true || obfuscate === false || _typeof(children) === 'object' // Allow child elements
+      ? propsList : this.reverse(propsList);
       var clickProps = Element === 'a' ? {
         href: humanInteraction === true || obfuscate === false ? this.createContactLink(this.props) : linkText || 'obfuscated',
         onClick: this.handleClick.bind(this)
