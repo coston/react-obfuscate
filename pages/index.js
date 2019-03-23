@@ -154,6 +154,14 @@ const headerCode = `
     <br />
     ➡️ facetime: 
     <Obfuscate facetime="202.224.5744" />
+    <br />
+    ➡️ Child Objects: 
+    <Obfuscate facetime="202.224.5744">
+    <svg height="100" width="100">
+  <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="#404663" />
+  Sorry, your browser does not support inline SVG.  
+</svg>
+  </Obfuscate>
   </p>
 </div>
 `.trim()
