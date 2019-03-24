@@ -18,6 +18,7 @@ class App extends React.Component {
         background-image: linear-gradient(-225deg, #2cd8d5, #c5c1ff 56%, #ffbac3);
         min-height: 100%;
       }
+      
     `}</style>
         <div style={{
           fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
@@ -30,18 +31,20 @@ class App extends React.Component {
           <h1>react-obfuscate ☁️</h1>
           <h2><a href="https://github.com/coston/react-obfuscate">View project on GitHub</a></h2>
             <p>
+              <a style={{ borderBottom: 'none', marginRight: '5px' }}
+                target="_blank" href='https://coveralls.io/github/coston/react-obfuscate?branch=master'><img src='https://coveralls.io/repos/github/coston/react-obfuscate/badge.svg?branch=master' alt='Coverage Status' /></a>
               <a
-                style={{ borderBottom: 'none' }}
+                style={{ borderBottom: 'none', marginRight: '5px'  }}
                 target="_blank"
                 href="https://travis-ci.org/coston/react-obfuscate"
               >
                 <img
-                  src="https://img.shields.io/travis/coston/react-obfuscate.svg"
+                  src="https://travis-ci.org/coston/react-obfuscate.svg?branch=master"
                   alt="Travis"
                 />
-              </a>&nbsp;
+              </a>
           <a
-                style={{ borderBottom: 'none' }}
+                style={{ borderBottom: 'none', marginRight: '5px'  }}
                 target="_blank"
                 href="https://www.npmjs.com/package/react-obfuscate"
               >
@@ -49,9 +52,9 @@ class App extends React.Component {
                   src="https://badge.fury.io/js/react-obfuscate.svg"
                   alt="npm version"
                 />
-              </a>&nbsp;
+              </a>
           <a
-                style={{ borderBottom: 'none' }}
+                style={{ borderBottom: 'none', marginRight: '5px'  }}
                 target="_blank"
                 href="https://www.npmjs.com/package/react-obfuscate"
               >
@@ -59,7 +62,7 @@ class App extends React.Component {
                   src="https://img.shields.io/npm/dm/react-obfuscate.svg"
                   alt="npm"
                 />
-              </a>&nbsp;
+              </a>
         </p>
             <LiveProvider
               code={headerCode}
