@@ -14,7 +14,7 @@ export default class Obfuscate extends Component {
     let link
 
     // Combine email header parameters for use with email
-    const combineHeaders = (params = {}) => {
+    const combineHeaders = params => {
       return Object.keys(params)
         .map(key => `${key}=${encodeURIComponent(params[key])}`)
         .join('&')
