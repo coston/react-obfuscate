@@ -46,7 +46,7 @@
     "enzyme-adapter-react-16": "^1.11.2",
     "enzyme-to-json": "^3.3.5",
     "jest": "^24.4.0",
-    "next": "^8.0.8",
+    "next": "^8.0.3",
     "prettier": "^1.16.4",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
