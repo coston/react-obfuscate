@@ -58,8 +58,7 @@ function (_Component) {
     value: function createContactLink(props) {
       var link; // Combine email header parameters for use with email
 
-      var combineHeaders = function combineHeaders() {
-        var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var combineHeaders = function combineHeaders(params) {
         return Object.keys(params).map(function (key) {
           return "".concat(key, "=").concat(encodeURIComponent(params[key]));
         }).join('&');
