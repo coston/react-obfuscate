@@ -79,7 +79,7 @@ function (_Component) {
       } else if (_typeof(props.children) !== 'object') {
         link = props.children;
       } else {
-        return '/';
+        return '';
       }
 
       return link;

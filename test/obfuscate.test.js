@@ -142,13 +142,13 @@ describe('obfuscate', () => {
     expect(wrapper.prop('href')).toEqual(`mailto:${testEmail}`)
   })
 
-  test('Return fallback / link if child is an object and no link is provided', () => {
+  test('Return empty href link if child is an object and no link is provided', () => {
     const wrapper = shallow(
       <Obfuscate ><button>This is a child object</button></Obfuscate>
     )
 
     wrapper.simulate('mouseover')
-    expect(wrapper.prop('href')).toEqual('/')
+    expect(wrapper.prop('href')).toEqual('')
   })
 
   test("Undefined does not break reversal", () => {

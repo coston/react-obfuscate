@@ -35,7 +35,7 @@ export default class Obfuscate extends Component {
     } else if (typeof props.children !== 'object') {
       link = props.children
     } else {
-      return '/'
+      return ''
     }
 
     return link
