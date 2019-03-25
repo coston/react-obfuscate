@@ -157,14 +157,17 @@ const headerCode = `
     <br />
     ➡️ facetime: 
     <Obfuscate facetime="202.224.5744" />
-    <br />
-    ➡️ Child Objects: 
-    <br/>
-    <Obfuscate facetime="202.224.5744">
-      <svg height="100" width="100">
-        <circle cx="50" cy="50" r="40" stroke="black" strokeWidth="3" fill="#404663" />
-      </svg>
-  </Obfuscate>
+    <div>
+      ➡️ Child elements: 
+      <Obfuscate email="coston.perkins@ua.edu">
+        <svg width={24} height={21}>
+          <path 
+            fill="#2AA3F5" 
+            d="M12 12.713L.0 3h23.97L12 12.713zm0 2.574L0 5.562V21h24V5" 
+          />
+        </svg>
+      </Obfuscate>
+    </div>
   </p>
 </div>
 `.trim()
