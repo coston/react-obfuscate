@@ -14,7 +14,7 @@ export default class Obfuscate extends Component {
     let link
 
     // Combine email header parameters for use with email
-    const combineHeaders = (params = {}) => {
+    const combineHeaders = params => {
       return Object.keys(params)
         .map(key => `${key}=${encodeURIComponent(params[key])}`)
         .join('&')
@@ -32,8 +32,10 @@ export default class Obfuscate extends Component {
       link = `sms:${props.sms}`
     } else if (props.facetime) {
       link = `facetime:${props.facetime}`
-    } else {
+    } else if (typeof props.children !== 'object') {
       link = props.children
+    } else {
+      return ''
     }
 
     return link
@@ -49,7 +51,7 @@ export default class Obfuscate extends Component {
     if (onClick && typeof onClick === 'function') {
       onClick()
     }
-    
+
     window.location.href = this.createContactLink(this.props)
   }
 
@@ -59,13 +61,15 @@ export default class Obfuscate extends Component {
     })
   }
 
-  reverse(s) {
-    return s
-      .split('')
-      .reverse()
-      .join('')
-      .replace('(', ')')
-      .replace(')', '(')
+  reverse(string) {
+    if (typeof string !== 'undefined') {
+      return string
+        .split('')
+        .reverse()
+        .join('')
+        .replace('(', ')')
+        .replace(')', '(')
+    }
   }
 
   render() {
@@ -94,7 +98,9 @@ export default class Obfuscate extends Component {
     }
 
     const link =
-      humanInteraction === true || obfuscate === false
+      humanInteraction === true ||
+      obfuscate === false ||
+      typeof children === 'object' // Allow child elements
         ? propsList
         : this.reverse(propsList)
 
