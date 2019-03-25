@@ -152,13 +152,13 @@ const headerCode = `
      }}
     />
     <br/>
-    ➡️ sms: 
+    ➡️ SMS: 
     <Obfuscate sms="+1 (202) 224-5744" />
     <br />
-    ➡️ facetime: 
+    ➡️ Facetime: 
     <Obfuscate facetime="202.224.5744" />
     <div>
-      ➡️ Child elements: 
+      ➡️ Child Elements: 
       <Obfuscate email="coston.perkins@ua.edu">
         <svg width={24} height={21}>
           <path 
