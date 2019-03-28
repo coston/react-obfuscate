@@ -129,7 +129,7 @@ react-obfuscate is awesome thanks to these community members:
 
 ## Contributing
 
-Please help make this react component better. Submit any issue and/or make a pull request!
+Please help make this react component better. Feel free to submit an issue, or contribute through a pull request.
 
 ## License
 
