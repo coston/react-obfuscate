@@ -76,6 +76,8 @@ function (_Component) {
         link = "sms:".concat(props.sms);
       } else if (props.facetime) {
         link = "facetime:".concat(props.facetime);
+      } else if (props.href) {
+        link = props.href;
       } else if (_typeof(props.children) !== 'object') {
         link = props.children;
       } else {
@@ -124,13 +126,14 @@ function (_Component) {
           sms = _this$props.sms,
           facetime = _this$props.facetime,
           email = _this$props.email,
+          href = _this$props.href,
           headers = _this$props.headers,
           obfuscate = _this$props.obfuscate,
           linkText = _this$props.linkText,
           style = _this$props.style,
-          others = _objectWithoutProperties(_this$props, ["element", "children", "tel", "sms", "facetime", "email", "headers", "obfuscate", "linkText", "style"]);
+          others = _objectWithoutProperties(_this$props, ["element", "children", "tel", "sms", "facetime", "email", "href", "headers", "obfuscate", "linkText", "style"]);
 
-      var propsList = children || tel || sms || facetime || email;
+      var propsList = children || tel || sms || facetime || email || href;
 
       var obsStyle = _objectSpread({}, style || {}, {
         unicodeBidi: 'bidi-override',
