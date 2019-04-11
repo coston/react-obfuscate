@@ -32,6 +32,8 @@ export default class Obfuscate extends Component {
       link = `sms:${props.sms}`
     } else if (props.facetime) {
       link = `facetime:${props.facetime}`
+    } else if (props.href) {
+      link = props.href
     } else if (typeof props.children !== 'object') {
       link = props.children
     } else {
@@ -81,6 +83,7 @@ export default class Obfuscate extends Component {
       sms,
       facetime,
       email,
+      href,
       headers,
       obfuscate,
       linkText,
@@ -88,7 +91,7 @@ export default class Obfuscate extends Component {
       ...others
     } = this.props
 
-    const propsList = children || tel || sms || facetime || email
+    const propsList = children || tel || sms || facetime || email || href
 
     const obsStyle = {
       ...(style || {}),

@@ -15,7 +15,7 @@ describe('obfuscate', () => {
     }
   })
 
-  test('renders an ofuscated href', () => {
+  test('renders an obfuscated href', () => {
     const wrapper = shallow(
       <Obfuscate tel={testTel} />
     )
@@ -23,7 +23,7 @@ describe('obfuscate', () => {
     expect(wrapper.prop('href')).toEqual('obfuscated')
   })
 
-  test('properly sets location.href when ofuscated email is clicked', () => {
+  test('properly sets location.href when obfuscated email is clicked', () => {
     const wrapper = shallow(
       <Obfuscate email={testEmail} />
     )
@@ -32,7 +32,7 @@ describe('obfuscate', () => {
     expect(global.window.location.href).toEqual(`mailto:${testEmail}`)
   })
 
-  test('properly sets location.href when ofuscated email with headers is clicked', () => {
+  test('properly sets location.href when obfuscated email with headers is clicked', () => {
     const headers = {
       cc: 'dade@zero-cool.af',
       bcc: 'smith@machina.net',
@@ -49,7 +49,7 @@ describe('obfuscate', () => {
       .join('&')}`)
   })
 
-  test('properly sets location.href when ofuscated tel is clicked', () => {
+  test('properly sets location.href when obfuscated tel is clicked', () => {
     const wrapper = shallow(
       <Obfuscate tel={testTel} />
     )
@@ -58,7 +58,17 @@ describe('obfuscate', () => {
     expect(global.window.location.href).toEqual(`tel:${testTel}`)
   })
 
-  test('properly sets location.href when ofuscated sms is clicked', () => {
+   test('properly sets location.href when obfuscated href is clicked', () => {
+    const wrapper = shallow(
+      <Obfuscate href={testTel} />
+    )
+
+    wrapper.simulate('click', { preventDefault: () => {} })
+    expect(global.window.location.href).toEqual(testTel)
+  })
+
+
+  test('properly sets location.href when obfuscated sms is clicked', () => {
     const wrapper = shallow(
       <Obfuscate sms={testTel} />
     )
@@ -67,7 +77,7 @@ describe('obfuscate', () => {
     expect(global.window.location.href).toEqual(`sms:${testTel}`)
   })
 
-  test('properly sets location.href when ofuscated facetime is clicked', () => {
+  test('properly sets location.href when obfuscated facetime is clicked', () => {
     const wrapper = shallow(
       <Obfuscate facetime={testTel} />
     )
@@ -76,7 +86,7 @@ describe('obfuscate', () => {
     expect(global.window.location.href).toEqual(`facetime:${testTel}`)
   })
 
-  test('properly sets location.href when ofuscated without type is clicked', () => {
+  test('properly sets location.href when obfuscated without type is clicked', () => {
     const wrapper = shallow(
       <Obfuscate>test</Obfuscate>
     )
@@ -85,7 +95,7 @@ describe('obfuscate', () => {
     expect(global.window.location.href).toEqual('test')
   })
 
-  test('renders an unofuscated href when obfuscate prop equals false', () => {
+  test('renders an unobfuscated href when obfuscate prop equals false', () => {
     const wrapper = shallow(
       <Obfuscate obfuscate={false} sms={testTel} />
     )
@@ -94,7 +104,7 @@ describe('obfuscate', () => {
     expect(wrapper.prop('href')).toEqual(`sms:${testTel}`)
   })
 
-  test('renders an unofuscated child element left to right when obfuscate prop equals false', () => {
+  test('renders an unobfuscated child element left to right when obfuscate prop equals false', () => {
     const wrapper = shallow(
       <Obfuscate obfuscate={false} facetime={testTel} />
     )
@@ -103,7 +113,7 @@ describe('obfuscate', () => {
     expect(wrapper.prop('href')).toEqual(`facetime:${testTel}`)
   })
 
-  test('renders an unofuscated child element right to left when obfuscated', () => {
+  test('renders an unobfuscated child element right to left when obfuscated', () => {
     const wrapper = shallow(
       <Obfuscate obfuscate={true} tel={testTel} />
     )

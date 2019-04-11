@@ -157,6 +157,12 @@ const headerCode = `
     <br />
     ➡️ Facetime: 
     <Obfuscate facetime="202.224.5744" />
+     <br />
+    ➡️ href: 
+    <Obfuscate href="https://wa.me/15551234567">Chat On WhatsApp</Obfuscate>
+    <br/>
+    ➡️ href: 
+    <Obfuscate href="skype:exampleusername">Skype Me</Obfuscate>
     <div>
       ➡️ Child Elements: 
       <Obfuscate email="coston.perkins@ua.edu">
