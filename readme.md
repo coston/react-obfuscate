@@ -2,9 +2,10 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/coston/react-obfuscate/badge.svg?branch=master)](https://coveralls.io/github/coston/react-obfuscate?branch=master)
 [![Build Status](https://travis-ci.org/coston/react-obfuscate.svg?branch=master)](https://travis-ci.org/coston/react-obfuscate)
+[![Greenkeeper badge](https://badges.greenkeeper.io/coston/react-obfuscate.svg)](https://greenkeeper.io/)
 [![npm version](https://badge.fury.io/js/react-obfuscate.svg)](https://www.npmjs.com/package/react-obfuscate)
 [![npm](https://img.shields.io/npm/dm/react-obfuscate.svg)](https://www.npmjs.com/package/react-obfuscate)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io) [![Greenkeeper badge](https://badges.greenkeeper.io/coston/react-obfuscate.svg)](https://greenkeeper.io/)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io)
 
 ![react-obfuscate](https://user-images.githubusercontent.com/7424180/28096225-c2f07142-666c-11e7-96ab-c12f34d1b86f.png)
 
@@ -14,7 +15,7 @@ Live demo: [react-obfuscate.coston.io](https://react-obfuscate.coston.io)
 
 ## How it works
 
-The user passes the contact link as an `email, tel, sms, or facetime` prop. The component obfuscates href data until a hover, click, or focus event. Links are given their proper URL schemes (mailto, facetime, etc.) The link is rendered in reverse in the dom, but reversed again with css. This making the link useless for spammers, but user friendly on screen.
+The user passes the contact link as an `email`, `tel`, `sms`, `facetime`, or `href` prop. The component obfuscates href data until a hover, click, or focus event. Links are given their proper URL schemes (mailto, facetime, etc.) The link is rendered in reverse in the dom, but reversed again with css. This making the link useless for spammers, but user friendly on screen.
 
 ## Why
 
