@@ -70,20 +70,26 @@ export default () => (
 </p>
 ```
 
-## Options
+## Common Options
 
-| Prop      | Type        | Argument     | Default      | Description                                                    |
-| --------- | ----------- | ------------ | ------------ | -------------------------------------------------------------- |
-| email     | `string`    | `<optional>` | `null`       | email address of the intended recipient                        |
-| tel       | `string`    | `<optional>` | `null`       | telephone number of the intended recipient                     |
-| sms       | `string`    | `<optional>` | `null`       | sms number of the intended recipient                           |
-| facetime  | `string`    | `<optional>` | `null`       | facetime address of the intended recipient                     |
-| href      | `string`    | `<optional>` | `null`       | Obfuscate any other URL type                                   |
-| headers   | `object`    | `<optional>` | `null`       | subject, cc, bcc, body, etc                                    |
-| obfuscate | `boolean`   | `<optional>` | `true`       | set to false to disable obfuscation                            |
-| linkText  | `string`    | `<optional>` | `obfuscated` | add custom pre-interaction href attribute placeholder text     |
-| element   | `string`    | `<optional>` | `'a'`        | custom element to render instead of an `a` tag                 |
-| onClick   | `function`  | `<optional>` | `null`       | called prior to setting location (e.g. for analytics tracking) |
+| Prop     | Type     | Argument   | Default | Description                                  |
+| -------- | -------- | ---------- | ------- | -------------------------------------------- |
+| email    | `string` | `optional` | `null`  | email address of the intended recipient      |
+| headers  | `object` | `optional` | `null`  | subject, cc, bcc, body, etc                  |
+| tel      | `string` | `optional` | `null`  | telephone number of the intended recipient   |
+| sms      | `string` | `optional` | `null`  | sms number of the intended recipient         |
+| facetime | `string` | `optional` | `null`  | facetime address of the intended recipient   |
+| href     | `string` | `optional` | `null`  | Obfuscate any other URL type (e.g. WhatsApp) |
+
+## Uncommon Options
+
+| Prop      | Type       | Argument   | Default      | Description                                                    |
+| --------- | ---------- | ---------- | ------------ | -------------------------------------------------------------- |
+| linkText  | `string`   | `optional` | `obfuscated` | add custom pre-interaction href attribute placeholder text     |
+| obfuscate | `boolean`  | `optional` | `true`       | set to false to disable obfuscation                            |
+| element   | `string`   | `optional` | `'a'`        | use if you want to override the default `a` tag                |
+| onClick   | `function` | `optional` | `null`       | called prior to setting location (e.g. for analytics tracking) |
+
 
 ## Development
 

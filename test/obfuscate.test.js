@@ -4,6 +4,7 @@ import Obfuscate from '../src/obfuscate.js'
 const testEmail = 'coston.perkins@ua.edu'
 const testTel = '205-454-1234'
 const testTelReveresed = '4321-454-502'
+const originalLocation = 'https://example.com/'
 
 
 describe('obfuscate', () => {
@@ -11,7 +12,7 @@ describe('obfuscate', () => {
     delete global.window.location
 
     global.window.location = {
-      href: new URL('https://example.com'),
+      href: new URL(originalLocation),
     }
   })
 
@@ -150,6 +151,15 @@ describe('obfuscate', () => {
 
     wrapper.simulate('mouseover')
     expect(wrapper.prop('href')).toEqual(`mailto:${testEmail}`)
+  })
+
+   test('Human interaction disables onClick setting js location.href', () => {
+    const wrapper = shallow(
+      <Obfuscate facetime={testTel} />
+    )
+    wrapper.simulate('mouseover')
+        wrapper.simulate('click')
+    expect(global.window.location.href.toString()).toEqual(originalLocation)
   })
 
   test('Return empty href link if child is an object and no link is provided', () => {

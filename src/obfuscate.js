@@ -46,15 +46,18 @@ export default class Obfuscate extends Component {
   handleClick(event) {
     const { onClick } = this.props
 
-    event.preventDefault()
+    // If focused or hovered, this js will be skipped with preference for html
+    if (this.state.humanInteraction === false) {
+      event.preventDefault()
 
-    // Allow instantiator to provide an onClick method to be called
-    // before we change location (e.g. for analytics tracking)
-    if (onClick && typeof onClick === 'function') {
-      onClick()
+      // Allow instantiator to provide an onClick method to be called
+      // before we change location (e.g. for analytics tracking)
+      if (onClick && typeof onClick === 'function') {
+        onClick()
+      }
+
+      window.location.href = this.createContactLink(this.props)
     }
-
-    window.location.href = this.createContactLink(this.props)
   }
 
   handleCopiability() {

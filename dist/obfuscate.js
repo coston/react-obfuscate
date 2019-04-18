@@ -89,15 +89,18 @@ function (_Component) {
   }, {
     key: "handleClick",
     value: function handleClick(event) {
-      var onClick = this.props.onClick;
-      event.preventDefault(); // Allow instantiator to provide an onClick method to be called
-      // before we change location (e.g. for analytics tracking)
+      var onClick = this.props.onClick; // If focused or hovered, this js will be skipped with preference for html
 
-      if (onClick && typeof onClick === 'function') {
-        onClick();
+      if (this.state.humanInteraction === false) {
+        event.preventDefault(); // Allow instantiator to provide an onClick method to be called
+        // before we change location (e.g. for analytics tracking)
+
+        if (onClick && typeof onClick === 'function') {
+          onClick();
+        }
+
+        window.location.href = this.createContactLink(this.props);
       }
-
-      window.location.href = this.createContactLink(this.props);
     }
   }, {
     key: "handleCopiability",
