@@ -6,7 +6,7 @@
   "files": [
     "dist/obfuscate.js"
   ],
-  "author": "Coston Perkins <coston.perkins@ua.edu> (https://coston.io)",
+  "author": "Coston Perkins <costonperkins@me.com> (https://coston.io)",
   "homepage": "https://github.com/coston/react-obfuscate",
   "repository": {
     "type": "git",
@@ -20,13 +20,12 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "dev": "next",
+    "start": "next",
     "build": "babel -d dist src",
     "build-site": "next build",
     "clean": "rm -rf dist && mkdir dist",
     "export": "npm run build-site && next export",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
