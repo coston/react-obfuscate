@@ -304,7 +304,7 @@ const headerCode = `
   <li>
     Email: 
     <Obfuscate 
-      email="coston.perkins@ua.edu" 
+      email="hello@coston.io" 
       headers={{
         cc: 'kate@acidburn.af',
         bcc: 'tanderson@metacortex.net',
@@ -333,7 +333,7 @@ const headerCode = `
 
   <li>
     Child Elements: 
-    <Obfuscate email="coston.perkins@ua.edu" aria-label="Email Me">
+    <Obfuscate email="hello@coston.io" aria-label="Email Me">
       <svg width={24} height={21}>
         <path 
           fill="#000" 
