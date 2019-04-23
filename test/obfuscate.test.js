@@ -180,3 +180,12 @@ describe('obfuscate', () => {
   })
   
 })
+
+  test('renders an unobfuscated children when obfuscateChildren is false', () => {
+    const wrapper = shallow(
+      <Obfuscate obfuscateChildren={false} tel={testTel} />
+    )
+
+    expect(wrapper.find('a').text()).toBe(testTel)
+    expect(wrapper.prop('href')).toEqual('obfuscated')
+  })

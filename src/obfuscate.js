@@ -89,6 +89,7 @@ export default class Obfuscate extends Component {
       href,
       headers,
       obfuscate,
+      obfuscateChildren,
       linkText,
       style,
       ...others
@@ -100,13 +101,18 @@ export default class Obfuscate extends Component {
       ...(style || {}),
       unicodeBidi: 'bidi-override',
       direction:
-        humanInteraction === true || obfuscate === false ? 'ltr' : 'rtl',
+        humanInteraction === true ||
+        obfuscate === false ||
+        obfuscateChildren === false
+          ? 'ltr'
+          : 'rtl',
     }
 
     const link =
       humanInteraction === true ||
       obfuscate === false ||
-      typeof children === 'object' // Allow child elements
+      typeof children === 'object' ||
+      obfuscateChildren === false // Allow child elements
         ? propsList
         : this.reverse(propsList)
 

@@ -30,25 +30,25 @@ npm install --save react-obfuscate
 ### Input
 
 ```js
-import React from 'react'
-import Obfuscate from 'react-obfuscate'
+import React from "react";
+import Obfuscate from "react-obfuscate";
 
 export default () => (
   <p>
     Phone: <Obfuscate tel="205-454-1234" />
     <br />
-    Email:{' '}
+    Email:{" "}
     <Obfuscate
-      email="coston.perkins@ua.edu"
+      email="hello@coston.io"
       headers={{
-        cc: 'dade@zero-cool.af',
-        bcc: 'smith@machina.net',
-        subject: 'react-obfuscate',
-        body: 'Down with the machines!'
+        cc: "dade@zero-cool.af",
+        bcc: "smith@machina.net",
+        subject: "react-obfuscate",
+        body: "Down with the machines!"
       }}
     />
   </p>
-)
+);
 ```
 
 ### Output
@@ -57,8 +57,14 @@ export default () => (
 
 ```html
 <p>
-  Phone: <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;">4321-454-502</a><br>
-  Email: <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;">looc.notsoc@olleh</a>
+  Phone:
+  <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;"
+    >4321-454-502</a
+  ><br />
+  Email:
+  <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;"
+    >oi.notsoc@olleh</a
+  >
 </p>
 ```
 
@@ -67,7 +73,7 @@ export default () => (
 ```js
 <p>
   Phone: <a href="tel:205-454-1234">205-454-1234</a><br>
-  Email: <a href="mailto:hello@coston.cool&subject=Question%20from%20the%20website&cc=friend@coston.cool">hello@coston.cool</a>
+  Email: <a href="mailto:hello@coston.io?cc=kate%40acidburn.af&amp;bcc=tanderson%40metacortex.net&amp;subject=react-obfuscate&amp;body=Down%20with%20the%20machines!">hello@coston.io</a>
 </p>
 ```
 
@@ -84,41 +90,43 @@ export default () => (
 
 ## Uncommon Options
 
-| Prop      | Type       | Argument   | Default      | Description                                                    |
-| --------- | ---------- | ---------- | ------------ | -------------------------------------------------------------- |
-| linkText  | `string`   | `optional` | `obfuscated` | add custom pre-interaction href attribute placeholder text     |
-| obfuscate | `boolean`  | `optional` | `true`       | set to false to disable obfuscation                            |
-| element   | `string`   | `optional` | `'a'`        | use if you want to override the default `a` tag                |
-| onClick   | `function` | `optional` | `null`       | called prior to setting location (e.g. for analytics tracking) |
-
+| Prop              | Type       | Argument   | Default      | Description                                                    |
+| ----------------- | ---------- | ---------- | ------------ | -------------------------------------------------------------- |
+| linkText          | `string`   | `optional` | `obfuscated` | add custom pre-interaction href attribute placeholder text     |
+| obfuscate         | `boolean`  | `optional` | `true`       | set to false to disable obfuscation                            |
+| obfuscateChildren | `boolean`  | `optional` | `true`       | set to false to disable obfuscation of children                |
+| element           | `string`   | `optional` | `'a'`        | use if you want to override the default `a` tag                |
+| onClick           | `function` | `optional` | `null`       | called prior to setting location (e.g. for analytics tracking) |
 
 ## Development
 
 ```bash
-npm run dev
+npm start
 ```
 
 ## Consecutive Obfuscate/inline elements
+
 react-obfuscate is an inline element. Using consecutive inline elements inside a block element causes an issue with the `bidi-override` reversal on Chrome. To prevent this,
 add any text between the elements, wrap `<Obfuscate/>` with another element (like `<span>`), or add `style={{display:'inline-block'}}` to prevent any issues.
 
 Example Case:
+
 ```js
 <address>
-	<Obfuscate style={{display:'inline-block'}} email="-mail@mailbox.org" />
-	<br />
-	<Obfuscate style={{display:'inline-block'}} tel="+69 111 222 333" />
+  <Obfuscate style={{ display: "inline-block" }} email="-mail@mailbox.org" />
+  <br />
+  <Obfuscate style={{ display: "inline-block" }} tel="+69 111 222 333" />
 </address>
 ```
 
 ## Obfuscating custom elements with the `element` prop
+
 With the `element` prop, users can obfuscate any element, like paragraphs or headers. Changing the dom element also removes the href and onClick props. Custom styling is required due to handling of right-to-left direction styles. Usually, adding `style={{textAlign:'left'}}` will suffice.
 
 Example Case:
+
 ```js
-<Obfuscate 
-  element='p'
-  style={{textAlign:'left'}}>
+<Obfuscate element="p" style={{ textAlign: "left" }}>
   This paragraph is more secret than others.
 </Obfuscate>
 ```
@@ -127,13 +135,12 @@ Example Case:
 
 react-obfuscate is awesome thanks to these community members:
 
-* [coston](https://github.com/coston)
-* [bostrom](https://github.com/bostrom)
-* [timmygee](https://github.com/timmygee)
-* [mic](https://github.com/mic)
-* [ravinggenius](https://github.com/ravinggenius)
-* [charlesbdudley](https://github.com/charlesbdudley)
-
+- [coston](https://github.com/coston)
+- [bostrom](https://github.com/bostrom)
+- [timmygee](https://github.com/timmygee)
+- [mic](https://github.com/mic)
+- [ravinggenius](https://github.com/ravinggenius)
+- [charlesbdudley](https://github.com/charlesbdudley)
 
 ## Contributing
 
