@@ -79,24 +79,24 @@ export default () => (
 
 ## Common Options
 
-| Prop     | Type     | Argument   | Default | Description                                  |
-| -------- | -------- | ---------- | ------- | -------------------------------------------- |
-| email    | `string` | `optional` | `null`  | email address of the intended recipient      |
-| headers  | `object` | `optional` | `null`  | subject, cc, bcc, body, etc                  |
-| tel      | `string` | `optional` | `null`  | telephone number of the intended recipient   |
-| sms      | `string` | `optional` | `null`  | sms number of the intended recipient         |
-| facetime | `string` | `optional` | `null`  | facetime address of the intended recipient   |
-| href     | `string` | `optional` | `null`  | Obfuscate any other URL type (e.g. WhatsApp) |
+| Prop       | Type     | Default | Description                                  |
+| ---------- | -------- | ------- | -------------------------------------------- |
+| `email`    | `string` | `null`  | email address of the intended recipient      |
+| `headers`  | `object` | `null`  | subject, cc, bcc, body, etc                  |
+| `tel`      | `string` | `null`  | telephone number of the intended recipient   |
+| `sms`      | `string` | `null`  | sms number of the intended recipient         |
+| `facetime` | `string` | `null`  | facetime address of the intended recipient   |
+| `href`     | `string` | `null`  | Obfuscate any other URL type (e.g. WhatsApp) |
 
 ## Uncommon Options
 
-| Prop              | Type       | Argument   | Default      | Description                                                    |
-| ----------------- | ---------- | ---------- | ------------ | -------------------------------------------------------------- |
-| linkText          | `string`   | `optional` | `obfuscated` | add custom pre-interaction href attribute placeholder text     |
-| obfuscate         | `boolean`  | `optional` | `true`       | set to false to disable obfuscation                            |
-| obfuscateChildren | `boolean`  | `optional` | `true`       | set to false to disable obfuscation of children                |
-| element           | `string`   | `optional` | `'a'`        | use if you want to override the default `a` tag                |
-| onClick           | `function` | `optional` | `null`       | called prior to setting location (e.g. for analytics tracking) |
+| Prop                | Type       | Default      | Description                                                    |
+| ------------------- | ---------- | ------------ | -------------------------------------------------------------- |
+| `linkText`          | `string`   | `obfuscated` | add custom pre-interaction href attribute placeholder text     |
+| `obfuscate`         | `boolean`  | `true`       | set to false to disable obfuscation                            |
+| `obfuscateChildren` | `boolean`  | `true`       | set to false to disable obfuscation of children                |
+| `element`           | `string`   | `'a'`        | use if you want to override the default `a` tag                |
+| `onClick`           | `function` | `null`       | called prior to setting location (e.g. for analytics tracking) |
 
 ## Development
 
