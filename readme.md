@@ -90,13 +90,13 @@ export default () => (
 
 ## Uncommon Options
 
-| Prop                | Type       | Default      | Description                                                    |
-| ------------------- | ---------- | ------------ | -------------------------------------------------------------- |
-| `linkText`          | `string`   | `obfuscated` | add custom pre-interaction href attribute placeholder text     |
-| `obfuscate`         | `boolean`  | `true`       | set to false to disable obfuscation                            |
-| `obfuscateChildren` | `boolean`  | `true`       | set to false to disable obfuscation of children                |
-| `element`           | `string`   | `'a'`        | use if you want to override the default `a` tag                |
-| `onClick`           | `function` | `null`       | called prior to setting location (e.g. for analytics tracking) |
+| Prop                | Type       | Default        | Description                                                    |
+| ------------------- | ---------- | -------------- | -------------------------------------------------------------- |
+| `linkText`          | `string`   | `'obfuscated'` | add custom pre-interaction href attribute placeholder text     |
+| `obfuscate`         | `boolean`  | `true`         | set to false to disable obfuscation                            |
+| `obfuscateChildren` | `boolean`  | `true`         | set to false to disable obfuscation of children                |
+| `element`           | `string`   | `'a'`          | use if you want to override the default `a` tag                |
+| `onClick`           | `function` | `null`         | called prior to setting location (e.g. for analytics tracking) |
 
 ## Development
 
