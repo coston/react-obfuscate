@@ -1,8 +1,8 @@
-import React from "react";
-import Head from "next/head";
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
-import Obfuscate from "../src/obfuscate";
-import {Browser, Terminal} from 'react-window-ui'
+import React from 'react'
+import Head from 'next/head'
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import Obfuscate from '../src/obfuscate'
+import { Browser, Terminal } from 'react-window-ui'
 
 class App extends React.Component {
   render() {
@@ -71,17 +71,17 @@ class App extends React.Component {
         <div
           style={{
             fontFamily:
-              "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
-            marginLeft: "auto",
-            marginRight: "auto",
-            maxWidth: "900px",
-            padding: "1em",
+              '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: '900px',
+            padding: '1em',
           }}
         >
           <h1>react-obfuscate ☁️</h1>
           <p>
             <a
-              style={{ borderBottom: "none", marginRight: "5px" }}
+              style={{ borderBottom: 'none', marginRight: '5px' }}
               target="_blank"
               href="https://coveralls.io/github/coston/react-obfuscate?branch=master"
             >
@@ -91,7 +91,7 @@ class App extends React.Component {
               />
             </a>
             <a
-              style={{ borderBottom: "none", marginRight: "5px" }}
+              style={{ borderBottom: 'none', marginRight: '5px' }}
               target="_blank"
               href="https://travis-ci.org/coston/react-obfuscate"
             >
@@ -101,7 +101,7 @@ class App extends React.Component {
               />
             </a>
             <a
-              style={{ borderBottom: "none", marginRight: "5px" }}
+              style={{ borderBottom: 'none', marginRight: '5px' }}
               target="_blank"
               href="https://www.npmjs.com/package/react-obfuscate"
             >
@@ -111,7 +111,7 @@ class App extends React.Component {
               />
             </a>
             <a
-              style={{ borderBottom: "none", marginRight: "5px" }}
+              style={{ borderBottom: 'none', marginRight: '5px' }}
               target="_blank"
               href="https://www.npmjs.com/package/react-obfuscate"
             >
@@ -124,14 +124,14 @@ class App extends React.Component {
           <LiveProvider
             code={headerCode}
             scope={{
-              Obfuscate
+              Obfuscate,
             }}
           >
             <div
               style={{
-                height: "auto",
-                minWidth: "100%",
-                marginBottom: "2em"
+                height: 'auto',
+                minWidth: '100%',
+                marginBottom: '2em',
               }}
             >
               <div>
@@ -140,20 +140,19 @@ class App extends React.Component {
                   Inspect and click these robot-resistant, user friendly,
                   contact links
                 </p>
-                <Browser  boxShadow="none">
+                <Browser boxShadow="none">
                   <LivePreview />
                 </Browser>
               </div>
             </div>
             <h2>Live Code</h2>
             <Terminal boxShadow="none">
-
               <LiveEditor
                 aria-describedby="Live Code Editor"
                 theme={theme}
                 style={{
-                  background: "black",
-                  overflow: "scroll"
+                  background: 'black',
+                  overflow: 'scroll',
                 }}
               />
               <LiveError />
@@ -163,12 +162,12 @@ class App extends React.Component {
           <h2 id="howitworks">How It Works</h2>
 
           <p>
-            Pass the contact link as an <code>email</code>, <code>tel</code>,{" "}
-            <code>sms</code>, <code>facetime</code>, or <code>href</code> prop. The component
-            obfuscates href data until an onClick event. Links are given their
-            proper URL schemes (mailto, facetime, etc.) The link is rendered in
-            reverse in the dom, but reversed again with css. This making the
-            link useless for spammers, but user friendly on screen.
+            Pass the contact link as an <code>email</code>, <code>tel</code>,{' '}
+            <code>sms</code>, <code>facetime</code>, or <code>href</code> prop.
+            The component obfuscates href data until an onClick event. Links are
+            given their proper URL schemes (mailto, facetime, etc.) The link is
+            rendered in reverse in the dom, but reversed again with css. This
+            making the link useless for spammers, but user friendly on screen.
           </p>
 
           <h2 id="why">Why</h2>
@@ -193,106 +192,106 @@ class App extends React.Component {
           <div className="hint" />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 
 const theme /*: PrismTheme */ = {
   plain: {
-    color: "#fff"
+    color: '#fff',
   },
   styles: [
     {
-      types: ["comment", "prolog", "doctype", "cdata", "punctuation"],
+      types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
       style: {
-        color: "#fc929e"
-      }
+        color: '#fc929e',
+      },
     },
     {
-      types: ["namespace"],
+      types: ['namespace'],
       style: {
-        opacity: 0.7
-      }
+        opacity: 0.7,
+      },
     },
     {
-      types: ["tag", "operator", "number"],
+      types: ['tag', 'operator', 'number'],
       style: {
-        color: "#fc929e"
-      }
+        color: '#fc929e',
+      },
     },
     {
-      types: ["property", "function"],
+      types: ['property', 'function'],
       style: {
-        color: "#9a86fd"
-      }
+        color: '#9a86fd',
+      },
     },
     {
-      types: ["tag-id", "selector", "atrule-id"],
+      types: ['tag-id', 'selector', 'atrule-id'],
       style: {
-        color: "#fff"
-      }
+        color: '#fff',
+      },
     },
     {
-      types: ["attr-name"],
+      types: ['attr-name'],
       style: {
-        color: "rgba(0,255,255,1)"
-      }
+        color: 'rgba(0,255,255,1)',
+      },
     },
     {
       types: [
-        "boolean",
-        "string",
-        "entity",
-        "url",
-        "attr-value",
-        "keyword",
-        "control",
-        "directive",
-        "unit",
-        "statement",
-        "regex",
-        "at-rule",
-        "placeholder",
-        "variable"
+        'boolean',
+        'string',
+        'entity',
+        'url',
+        'attr-value',
+        'keyword',
+        'control',
+        'directive',
+        'unit',
+        'statement',
+        'regex',
+        'at-rule',
+        'placeholder',
+        'variable',
       ],
       style: {
-        color: "rgba(0,255,255,1)"
-      }
+        color: 'rgba(0,255,255,1)',
+      },
     },
     {
-      types: ["deleted"],
+      types: ['deleted'],
       style: {
-        textDecorationLine: "line-through"
-      }
+        textDecorationLine: 'line-through',
+      },
     },
     {
-      types: ["inserted"],
+      types: ['inserted'],
       style: {
-        textDecorationLine: "underline"
-      }
+        textDecorationLine: 'underline',
+      },
     },
     {
-      types: ["italic"],
+      types: ['italic'],
       style: {
-        fontStyle: "italic"
-      }
+        fontStyle: 'italic',
+      },
     },
     {
-      types: ["important", "bold"],
+      types: ['important', 'bold'],
       style: {
-        fontWeight: "bold"
-      }
+        fontWeight: 'bold',
+      },
     },
     {
-      types: ["important"],
+      types: ['important'],
       style: {
-        color: "#6c6783"
-      }
-    }
-  ]
-};
+        color: '#6c6783',
+      },
+    },
+  ],
+}
 
 const headerCode = `
 <ul>
@@ -343,4 +342,4 @@ const headerCode = `
     </Obfuscate>
   </li>
 </ul>
-`.trim();
+`.trim()
