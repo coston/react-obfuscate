@@ -23,4 +23,3 @@
 
 - My code follows the code style of this project.
 - If my change requires a change to the documentation I have updated the documentation accordingly.
-- I have read the **CONTRIBUTING** document.
