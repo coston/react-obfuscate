@@ -1,4 +1,4 @@
-name: Audit pull request
+name: Lighthouse Audit
 on: pull_request
 
 jobs:
