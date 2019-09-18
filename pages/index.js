@@ -15,7 +15,7 @@ class App extends React.Component {
         <style>{`
             html {
                 min-height: 100%;
-                background: #fc929e;
+                background: #ffd0d4;
             }
             a {
                 color: #000;
