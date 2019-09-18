@@ -15,7 +15,7 @@ class App extends React.Component {
         <style>{`
             html {
                 min-height: 100%;
-                background: rgba(0,255,255,.7);
+                background: #ffd0d4;
             }
             a {
                 color: #000;
@@ -200,7 +200,7 @@ export default App
 
 const theme /*: PrismTheme */ = {
   plain: {
-    color: '#fff',
+    color: '#fc929e',
   },
   styles: [
     {
@@ -218,7 +218,7 @@ const theme /*: PrismTheme */ = {
     {
       types: ['tag', 'operator', 'number'],
       style: {
-        color: '#fc929e',
+        color: '#fff',
       },
     },
     {
@@ -236,7 +236,7 @@ const theme /*: PrismTheme */ = {
     {
       types: ['attr-name'],
       style: {
-        color: 'rgba(0,255,255,1)',
+        color: '#fff',
       },
     },
     {
@@ -257,7 +257,7 @@ const theme /*: PrismTheme */ = {
         'variable',
       ],
       style: {
-        color: 'rgba(0,255,255,1)',
+        color: '#fc929e',
       },
     },
     {
