@@ -38,7 +38,7 @@
     "@babel/core": "^7.7.5",
     "@babel/plugin-transform-spread": "^7.7.4",
     "@babel/preset-env": "^7.7.5",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "^7.7.4",
     "babel-jest": "^24.9.0",
     "coveralls": "^3.0.6",
     "enzyme": "^3.10.0",
