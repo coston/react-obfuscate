@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Release
         if: github.event.pull_request.merged
+      - run: git checkout HEAD^
+      - name: Release
         run: |
           git config user.name $GITHUB_ACTOR​
           git config user.email gh-actions-${GITHUB_ACTOR}@github.com
