@@ -14,9 +14,9 @@ jobs:
         run: |
           git config user.name $GITHUB_ACTOR​
           git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git​
           yarn
           yarn preversion
-          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git​
           echo -e "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
           yarn release
           echo -e "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
