@@ -83,6 +83,7 @@ class App extends React.Component {
             <a
               style={{ borderBottom: 'none', marginRight: '5px' }}
               target="_blank"
+              rel="noopener noreferrer"
               href="https://coveralls.io/github/coston/react-obfuscate?branch=master"
             >
               <img
@@ -93,6 +94,7 @@ class App extends React.Component {
             <a
               style={{ borderBottom: 'none', marginRight: '5px' }}
               target="_blank"
+              rel="noopener noreferrer"
               href="https://travis-ci.org/coston/react-obfuscate"
             >
               <img
@@ -103,6 +105,7 @@ class App extends React.Component {
             <a
               style={{ borderBottom: 'none', marginRight: '5px' }}
               target="_blank"
+              rel="noopener noreferrer"
               href="https://www.npmjs.com/package/react-obfuscate"
             >
               <img
@@ -113,6 +116,7 @@ class App extends React.Component {
             <a
               style={{ borderBottom: 'none', marginRight: '5px' }}
               target="_blank"
+              rel="noopener noreferrer"
               href="https://www.npmjs.com/package/react-obfuscate"
             >
               <img

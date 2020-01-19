@@ -17,41 +17,56 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 10.0.0"
   },
   "scripts": {
     "start": "next",
     "build": "babel -d dist src",
     "build-site": "next build",
     "clean": "rm -rf dist && mkdir dist",
-    "export": "npm run build-site && next export",
+    "export": "yarn build-site && next export",
     "format": "prettier --write src/**/*.{js,jsx}",
+    "lint": "eslint --ext=js --ext=jsx ./src",
+    "lint:fix": "eslint --ext=js --ext=jsx ./src --fix ",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "preversion": "npm run test && npm run format && npm run clean && npm run build && npm run export",
-    "postpublish": "git push && git push --tag"
+    "preversion": "yarn format && yarn lint && yarn test && yarn build && yarn export",
+    "postpublish": "git push && git push --tag",
+    "release": "standard-version"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.0",
-    "@babel/plugin-transform-spread": "^7.8.3",
-    "@babel/preset-env": "^7.8.2",
-    "@babel/preset-react": "^7.8.0",
-    "babel-jest": "^24.9.0",
-    "coveralls": "^3.0.6",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.4.0",
-    "jest": "^24.9.0",
-    "next": "^9.1.5",
-    "prettier": "^1.18.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-live": "^2.2.0",
-    "react-test-renderer": "^16.9.0",
-    "react-window-ui": "^2.1.0"
+    "@babel/cli": "7.8.3",
+    "@babel/core": "7.8.0",
+    "@babel/plugin-transform-spread": "7.8.3",
+    "@babel/preset-env": "7.8.2",
+    "@babel/preset-react": "7.8.0",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@typescript-eslint/parser": "2.16.0",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "24.9.0",
+    "coveralls": "3.0.6",
+    "enzyme": "3.10.0",
+    "enzyme-adapter-react-16": "1.14.0",
+    "enzyme-to-json": "3.4.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.18.0",
+    "eslint-plugin-react-hooks": "2.3.0",
+    "husky": "4.0.10",
+    "jest": "24.9.0",
+    "lint-staged": "9.5.0",
+    "next": "9.1.5",
+    "prettier": "1.18.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-live": "2.2.0",
+    "react-test-renderer": "16.9.0",
+    "react-window-ui": "2.1.0",
+    "standard-version": "7.0.1"
   },
   "jest": {
     "setupFiles": [
@@ -62,8 +77,37 @@
       "enzyme-to-json/serializer"
     ],
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "identity-obj-proxy"
+      ".+\\.(css|scss)$": "identity-obj-proxy"
     }
   },
-  "dependencies": {}
+  "eslintConfig": {
+    "extends": [
+      "plugin:react/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parser": "babel-eslint",
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
+  "dependencies": {},
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
 }

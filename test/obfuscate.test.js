@@ -1,5 +1,5 @@
 import React from 'react'
-import Obfuscate from '../src/obfuscate.js'
+import Obfuscate from '../src/obfuscate'
 
 const testEmail = 'coston.perkins@ua.edu'
 const testTel = '205-454-1234'
