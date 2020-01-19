@@ -12,10 +12,10 @@ jobs:
         run: |
           yarn
           yarn preversion
-          echo -e "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          echo -e "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
           yarn release
           echo -e "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
           yarn publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
