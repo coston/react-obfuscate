@@ -6,21 +6,19 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      if: github.event.pull_request.merged​
-      with:​
-      ref: refs/heads/master
-      - name: Release
-        run: |
-          git config user.name $GITHUB_ACTOR​
-          git config user.email gh-actions-${GITHUB_ACTOR}@github.com
-          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git​
-          yarn
-          yarn preversion
-          echo -e "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
-          yarn release
-          echo -e "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
-          yarn publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - uses: actions/checkout@v2
+        if: github.event.pull_request.merged​
+        - name: Release
+          run: |
+            git config user.name $GITHUB_ACTOR​
+            git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+            git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git​
+            yarn
+            yarn preversion
+            echo -e "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
+            yarn release
+            echo -e "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
+            yarn publish
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
