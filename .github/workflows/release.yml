@@ -1,15 +1,18 @@
 name: Release
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types: [closed]
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        if: github.event.pull_request.merged​
       - name: Release
         run: |
+          git config user.name $GITHUB_ACTOR​
+          git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git​
           yarn
           yarn preversion
           echo -e "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
