@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import T from 'prop-types'
 
 export default class Obfuscate extends Component {
   constructor(props) {
@@ -138,4 +139,20 @@ export default class Obfuscate extends Component {
 
     return <Element {...props}>{link}</Element>
   }
+}
+
+Obfuscate.propTypes = {
+  facetime: T.string,
+  linkText: T.string,
+  element: T.string,
+  email: T.string,
+  href: T.string,
+  tel: T.string,
+  sms: T.string,
+  children: T.object,
+  headers: T.object,
+  style: T.object,
+  onClick: T.func,
+  obfuscate: T.bool,
+  obfuscateChildren: T.bool,
 }
