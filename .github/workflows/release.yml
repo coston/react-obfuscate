@@ -1,7 +1,7 @@
 name: Release
-on:​
-  pull_request:​
-    types: [closed]
+on:
+  pull_request:
+    types: closed
 jobs:
   release:
     runs-on: ubuntu-latest
