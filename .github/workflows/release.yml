@@ -22,7 +22,7 @@ jobs:
           readonly local filter_count=$(echo "$last_commit_log" | grep -c "$COMMIT_FILTER" )
           echo "number of occurence of '$COMMIT_FILTER' in '$last_commit_log': $filter_count"
 
-          if [[ "$filter_count" != 0 ]]; then
+          if [[ "$filter_count" == 0 ]]; then
             echo "all good, continue"
             echo "Releasing..."
             yarn
