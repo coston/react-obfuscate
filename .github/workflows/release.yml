@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 2
-       - uses: fregante/setup-git-token@v1
+      - uses: fregante/setup-git-token@v1
         with:
           token: ${ GITHUB_TOKEN }
       - name: Release
