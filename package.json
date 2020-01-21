@@ -1,6 +1,6 @@
 {
   "name": "react-obfuscate",
-  "version": "3.6.4",
+  "version": "3.6.5",
   "description": "An intelligent React component to obfuscate any contact link",
   "main": "dist/obfuscate.js",
   "files": [
