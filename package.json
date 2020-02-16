@@ -24,14 +24,14 @@
     "build": "babel -d dist src",
     "build-site": "next build",
     "clean": "rm -rf dist && mkdir dist",
-    "export": "npm run build-site && next export",
+    "export": "yarn build-site && next export",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint": "eslint --ext=js --ext=jsx ./src",
     "lint:fix": "eslint --ext=js --ext=jsx ./src --fix",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "preversion": "npm run test && npm run format && npm run clean && npm run build && npm run export",
+    "preversion": "yarn test && yarn lint:fix && yarn clean && yarn build && yarn export",
     "postpublish": "git push && git push --tag"
   },
   "devDependencies": {
