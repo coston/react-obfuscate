@@ -24,13 +24,14 @@
     "build": "babel -d dist src",
     "build-site": "next build",
     "clean": "rm -rf dist && mkdir dist",
-    "export": "npm run build-site && next export",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "export": "yarn build-site && next export",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "lint": "eslint --ext=js --ext=jsx ./src",
+    "lint:fix": "eslint --ext=js --ext=jsx ./src --fix",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "preversion": "npm run test && npm run format && npm run clean && npm run build && npm run export",
+    "preversion": "yarn test && yarn lint:fix && yarn clean && yarn build && yarn export",
     "postpublish": "git push && git push --tag"
   },
   "devDependencies": {
@@ -39,14 +40,28 @@
     "@babel/plugin-transform-spread": "7.8.3",
     "@babel/preset-env": "7.8.4",
     "@babel/preset-react": "7.8.3",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "babel-eslint": "10.0.3",
     "babel-jest": "25.1.0",
     "coveralls": "3.0.9",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",
     "enzyme-to-json": "3.4.4",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.18.3",
+    "eslint-plugin-react-hooks": "1.7.0",
+    "husky": "4.2.3",
     "jest": "25.1.0",
+    "lint-staged": "10.0.7",
     "next": "9.2.1",
     "prettier": "1.19.1",
+    "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-live": "2.2.2",
@@ -66,7 +81,24 @@
     }
   },
   "peerDependencies": {
-    "react": ">= 16.x",
-    "react-dom": ">= 16.x"
+    "prop-types": ">= 15",
+    "react": ">= 16.8",
+    "react-dom": ">= 16.8"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }

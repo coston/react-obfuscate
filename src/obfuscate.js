@@ -1,141 +1,165 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
+import T from 'prop-types';
 
-export default class Obfuscate extends Component {
-  constructor(props) {
-    super(props)
+const Obfuscate = props => {
+  const {
+    element,
+    children,
+    tel,
+    sms,
+    facetime,
+    email,
+    href,
+    headers,
+    obfuscate,
+    obfuscateChildren,
+    linkText,
+    style,
+    onClick,
+    ...others
+  } = props;
 
-    this.state = {
-      humanInteraction: false,
-    }
-  }
+  const [humanInteraction, setHumanInteraction] = useState(false);
+  const linkProps = children || tel || sms || facetime || email || href;
+  const Component = element;
 
-  // Convert contact information to contact URL scheme
-  createContactLink(props) {
-    let link
+  const generateLink = () => {
+    let link;
 
     // Combine email header parameters for use with email
     const combineHeaders = params => {
       return Object.keys(params)
         .map(key => `${key}=${encodeURIComponent(params[key])}`)
-        .join('&')
-    }
+        .join('&');
+    };
 
-    if (props.email) {
-      link = `mailto:${props.email}`
+    if (email) {
+      link = `mailto:${email}`;
 
-      if (props.headers) {
-        link += `?${combineHeaders(props.headers)}`
+      if (headers) {
+        link += `?${combineHeaders(headers)}`;
       }
-    } else if (props.tel) {
-      link = `tel:${props.tel}`
-    } else if (props.sms) {
-      link = `sms:${props.sms}`
-    } else if (props.facetime) {
-      link = `facetime:${props.facetime}`
-    } else if (props.href) {
-      link = props.href
-    } else if (typeof props.children !== 'object') {
-      link = props.children
+    } else if (tel) {
+      link = `tel:${tel}`;
+    } else if (sms) {
+      link = `sms:${sms}`;
+    } else if (facetime) {
+      link = `facetime:${facetime}`;
+    } else if (href) {
+      link = href;
+    } else if (typeof children !== 'object') {
+      link = children;
     } else {
-      return ''
+      return '';
     }
 
-    return link
-  }
+    return link;
+  };
 
-  handleClick(event) {
-    const { onClick } = this.props
-
+  const handleClick = () => {
     // If focused or hovered, this js will be skipped with preference for html
-    if (this.state.humanInteraction === false) {
-      event.preventDefault()
-
+    if (humanInteraction === false) {
       // Allow instantiator to provide an onClick method to be called
       // before we change location (e.g. for analytics tracking)
       if (onClick && typeof onClick === 'function') {
-        onClick()
+        onClick();
       }
 
-      window.location.href = this.createContactLink(this.props)
+      window.location.href = generateLink({
+        email,
+        headers,
+        tel,
+        sms,
+        facetime,
+        href,
+        children,
+      });
     }
-  }
+  };
 
-  handleCopiability() {
-    this.setState({
-      humanInteraction: true,
-    })
-  }
+  const reverse = content =>
+    typeof content !== 'undefined' &&
+    content
+      .split('')
+      .reverse()
+      .join('')
+      .replace('(', ')')
+      .replace(')', '(');
 
-  reverse(string) {
-    if (typeof string !== 'undefined') {
-      return string
-        .split('')
-        .reverse()
-        .join('')
-        .replace('(', ')')
-        .replace(')', '(')
-    }
-  }
-
-  render() {
-    const { humanInteraction } = this.state
-    const {
-      element: Element = 'a',
-      children,
-      tel,
-      sms,
-      facetime,
-      email,
-      href,
-      headers,
-      obfuscate,
-      obfuscateChildren,
-      linkText,
-      style,
-      ...others
-    } = this.props
-
-    const propsList = children || tel || sms || facetime || email || href
-
-    const obsStyle = {
-      ...(style || {}),
-      unicodeBidi: 'bidi-override',
-      direction:
-        humanInteraction === true ||
-        obfuscate === false ||
-        obfuscateChildren === false
-          ? 'ltr'
-          : 'rtl',
-    }
-
-    const link =
+  const obfuscatedStyle = {
+    ...style,
+    unicodeBidi: 'bidi-override',
+    direction:
       humanInteraction === true ||
       obfuscate === false ||
-      typeof children === 'object' ||
-      obfuscateChildren === false // Allow child elements
-        ? propsList
-        : this.reverse(propsList)
+      obfuscateChildren === false
+        ? 'ltr'
+        : 'rtl',
+  };
 
-    const clickProps =
-      Element === 'a'
-        ? {
-            href:
-              humanInteraction === true || obfuscate === false
-                ? this.createContactLink(this.props)
-                : linkText || 'obfuscated',
-            onClick: this.handleClick.bind(this),
-          }
-        : {}
+  const renderedLink =
+    humanInteraction === true ||
+    obfuscate === false ||
+    typeof children === 'object' ||
+    obfuscateChildren === false // Allow child elements
+      ? linkProps
+      : reverse(linkProps);
 
-    const props = {
-      onFocus: this.handleCopiability.bind(this),
-      onMouseOver: this.handleCopiability.bind(this),
-      onContextMenu: this.handleCopiability.bind(this),
-      ...others,
-      ...clickProps,
-      style: obsStyle,
-    }
+  const clickProps =
+    Component === 'a'
+      ? {
+          href:
+            humanInteraction === true || obfuscate === false
+              ? generateLink()
+              : linkText || 'obfuscated',
+          onClick: handleClick,
+        }
+      : {};
 
-    return <Element {...props}>{link}</Element>
-  }
-}
+  return (
+    <Component
+      onFocus={() => setHumanInteraction(true)}
+      onMouseOver={() => setHumanInteraction(true)}
+      onContextMenu={() => setHumanInteraction(true)}
+      {...others}
+      {...clickProps}
+      style={obfuscatedStyle}
+    >
+      {renderedLink}
+    </Component>
+  );
+};
+
+Obfuscate.propTypes = {
+  element: T.string,
+  children: T.node,
+  tel: T.string,
+  sms: T.string,
+  facetime: T.string,
+  email: T.string,
+  href: T.string,
+  headers: T.shape({}),
+  obfuscate: T.bool,
+  obfuscateChildren: T.bool,
+  linkText: T.string,
+  style: T.shape({}),
+  onClick: T.func,
+};
+
+Obfuscate.defaultProps = {
+  element: 'a',
+  children: undefined,
+  tel: undefined,
+  sms: undefined,
+  facetime: undefined,
+  email: undefined,
+  href: undefined,
+  headers: undefined,
+  obfuscate: undefined,
+  obfuscateChildren: undefined,
+  linkText: undefined,
+  style: {},
+  onClick: undefined,
+};
+
+export default Obfuscate;
