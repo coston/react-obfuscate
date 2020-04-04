@@ -89,7 +89,7 @@ const Obfuscate = (props) => {
   const obfuscatedStyle = {
     ...style,
     unicodeBidi: 'bidi-override',
-    writingMode: useClearText ? 'inherit' : 'horizontal-bt',
+    writingMode: useClearText ? null : 'horizontal-bt',
     direction: useClearText ? 'ltr' : 'rtl',
   };
 

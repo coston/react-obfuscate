@@ -177,7 +177,7 @@ describe('obfuscate', () => {
     expect(wrapper.prop('style')).toEqual({
       direction: 'ltr',
       unicodeBidi: 'bidi-override',
-      writingMode: 'inherit',
+      writingMode: null,
     });
   });
 
