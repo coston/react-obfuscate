@@ -81,7 +81,7 @@ const Obfuscate = (props) => {
     typeof content !== 'undefined' &&
     content.split('').reverse().join('').replace('(', ')').replace(')', '(');
 
-  const isClearText =
+  const useClearText =
     humanInteraction === true ||
     obfuscate === false ||
     obfuscateChildren === false;
@@ -89,8 +89,8 @@ const Obfuscate = (props) => {
   const obfuscatedStyle = {
     ...style,
     unicodeBidi: 'bidi-override',
-    writingMode: isClearText ? 'inherit' : 'horizontal-bt',
-    direction: isClearText ? 'ltr' : 'rtl',
+    writingMode: useClearText ? 'inherit' : 'horizontal-bt',
+    direction: useClearText ? 'ltr' : 'rtl',
   };
 
   const renderedLink =
