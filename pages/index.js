@@ -1,8 +1,8 @@
-import React from 'react'
-import Head from 'next/head'
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import Obfuscate from '../src/obfuscate'
-import { Browser, Terminal } from 'react-window-ui'
+import React from 'react';
+import Head from 'next/head';
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import Obfuscate from '../src/obfuscate';
+import { Browser, Terminal } from 'react-window-ui';
 
 class App extends React.Component {
   render() {
@@ -192,11 +192,11 @@ class App extends React.Component {
           <div className="hint" />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
 
 const theme /*: PrismTheme */ = {
   plain: {
@@ -291,9 +291,22 @@ const theme /*: PrismTheme */ = {
       },
     },
   ],
-}
+};
 
 const headerCode = `
+<>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th> 
+  </tr>
+  <tr>
+  <td>Calderón de la Barca</td>
+    <td><Obfuscate 
+      email="1111111111111-22222222222222@333333333333333-44444444444.io" 
+    /></td> 
+  </tr>
+</table>
 <ul>
   <li>
     Telephone: 
@@ -342,4 +355,5 @@ const headerCode = `
     </Obfuscate>
   </li>
 </ul>
-`.trim()
+</>
+`.trim();

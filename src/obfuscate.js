@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import T from 'prop-types';
 
-const Obfuscate = props => {
+const Obfuscate = (props) => {
   const {
     element,
     children,
@@ -27,9 +27,9 @@ const Obfuscate = props => {
     let link;
 
     // Combine email header parameters for use with email
-    const combineHeaders = params => {
+    const combineHeaders = (params) => {
       return Object.keys(params)
-        .map(key => `${key}=${encodeURIComponent(params[key])}`)
+        .map((key) => `${key}=${encodeURIComponent(params[key])}`)
         .join('&');
     };
 
@@ -77,24 +77,20 @@ const Obfuscate = props => {
     }
   };
 
-  const reverse = content =>
+  const reverse = (content) =>
     typeof content !== 'undefined' &&
-    content
-      .split('')
-      .reverse()
-      .join('')
-      .replace('(', ')')
-      .replace(')', '(');
+    content.split('').reverse().join('').replace('(', ')').replace(')', '(');
+
+  const isClearText =
+    humanInteraction === true ||
+    obfuscate === false ||
+    obfuscateChildren === false;
 
   const obfuscatedStyle = {
     ...style,
     unicodeBidi: 'bidi-override',
-    direction:
-      humanInteraction === true ||
-      obfuscate === false ||
-      obfuscateChildren === false
-        ? 'ltr'
-        : 'rtl',
+    writingMode: isClearText ? 'inherit' : 'horizontal-bt',
+    direction: isClearText ? 'ltr' : 'rtl',
   };
 
   const renderedLink =

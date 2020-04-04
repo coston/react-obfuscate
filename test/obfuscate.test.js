@@ -42,7 +42,7 @@ describe('obfuscate', () => {
     wrapper.simulate('click', { preventDefault: () => {} });
     expect(global.window.location.href).toEqual(
       `mailto:${testEmail}?${Object.keys(headers)
-        .map(key => `${key}=${encodeURIComponent(headers[key])}`)
+        .map((key) => `${key}=${encodeURIComponent(headers[key])}`)
         .join('&')}`
     );
   });
@@ -177,6 +177,7 @@ describe('obfuscate', () => {
     expect(wrapper.prop('style')).toEqual({
       direction: 'ltr',
       unicodeBidi: 'bidi-override',
+      writingMode: 'inherit',
     });
   });
 
@@ -189,6 +190,7 @@ describe('obfuscate', () => {
       color: 'test',
       direction: 'rtl',
       unicodeBidi: 'bidi-override',
+      writingMode: 'horizontal-bt',
     });
   });
 });
