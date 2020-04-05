@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Obfuscate from '../src/obfuscate';
+import Obfuscate from '../src/index';
 
 const testEmail = 'coston.perkins@ua.edu';
 const testTel = '205-454-1234';

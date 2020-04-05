@@ -2,9 +2,9 @@
   "name": "react-obfuscate",
   "version": "3.7.1-0",
   "description": "An intelligent React component to obfuscate any contact link",
-  "main": "dist/obfuscate.js",
+  "main": "dist/index.js",
   "files": [
-    "dist/obfuscate.js"
+    "dist/index.js"
   ],
   "author": "Coston Perkins <costonperkins@me.com> (https://coston.io)",
   "homepage": "https://github.com/coston/react-obfuscate",
