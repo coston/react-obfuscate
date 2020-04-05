@@ -59,7 +59,7 @@
     "husky": "4.2.3",
     "jest": "25.2.7",
     "lint-staged": "10.1.2",
-    "next": "9.3.2",
+    "next": "9.3.4",
     "prettier": "2.0.2",
     "prop-types": "15.7.2",
     "react": "16.13.1",
