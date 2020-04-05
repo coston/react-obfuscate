@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import Obfuscate from '../src/obfuscate';
+import Obfuscate from '../src';
 import { Browser, Terminal } from 'react-window-ui';
 
 class App extends React.Component {
