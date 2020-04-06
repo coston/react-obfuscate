@@ -60,7 +60,7 @@
     "jest": "25.2.7",
     "lint-staged": "10.1.2",
     "next": "9.3.4",
-    "prettier": "2.0.2",
+    "prettier": "2.0.4",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
