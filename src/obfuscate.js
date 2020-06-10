@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import T from 'prop-types';
 
-const Obfuscate = props => {
+const Obfuscate = (props) => {
   const {
     element,
     children,
@@ -27,9 +27,9 @@ const Obfuscate = props => {
     let link;
 
     // Combine email header parameters for use with email
-    const combineHeaders = params => {
+    const combineHeaders = (params) => {
       return Object.keys(params)
-        .map(key => `${key}=${encodeURIComponent(params[key])}`)
+        .map((key) => `${key}=${encodeURIComponent(params[key])}`)
         .join('&');
     };
 
@@ -57,14 +57,14 @@ const Obfuscate = props => {
   };
 
   const handleClick = () => {
+    // Allow instantiator to provide an onClick method to be called
+    // before we change location (e.g. for analytics tracking)
+    if (onClick && typeof onClick === 'function') {
+      onClick();
+    }
+
     // If focused or hovered, this js will be skipped with preference for html
     if (humanInteraction === false) {
-      // Allow instantiator to provide an onClick method to be called
-      // before we change location (e.g. for analytics tracking)
-      if (onClick && typeof onClick === 'function') {
-        onClick();
-      }
-
       window.location.href = generateLink({
         email,
         headers,
@@ -77,14 +77,9 @@ const Obfuscate = props => {
     }
   };
 
-  const reverse = content =>
+  const reverse = (content) =>
     typeof content !== 'undefined' &&
-    content
-      .split('')
-      .reverse()
-      .join('')
-      .replace('(', ')')
-      .replace(')', '(');
+    content.split('').reverse().join('').replace('(', ')').replace(')', '(');
 
   const obfuscatedStyle = {
     ...style,
