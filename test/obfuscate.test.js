@@ -42,7 +42,7 @@ describe('obfuscate', () => {
     wrapper.simulate('click', { preventDefault: () => {} });
     expect(global.window.location.href).toEqual(
       `mailto:${testEmail}?${Object.keys(headers)
-        .map(key => `${key}=${encodeURIComponent(headers[key])}`)
+        .map((key) => `${key}=${encodeURIComponent(headers[key])}`)
         .join('&')}`
     );
   });
@@ -113,13 +113,14 @@ describe('obfuscate', () => {
     expect(wrapper.prop('onClick')).toBeUndefined();
   });
 
-  test('calls supplied onClick method before changing location', () => {
+  test('calls supplied onClick method', () => {
     const onClick = jest.fn();
     const wrapper = shallow(<Obfuscate email={testEmail} onClick={onClick} />);
 
+    wrapper.simulate('mouseover');
     wrapper.simulate('click', { preventDefault: () => {} });
     expect(onClick).toHaveBeenCalled();
-    expect(global.window.location.href).toEqual(`mailto:${testEmail}`);
+    expect(wrapper.prop('href')).toEqual(`mailto:${testEmail}`);
   });
 
   test('unobfuscates href when user mouses over element', () => {
