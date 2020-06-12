@@ -30,21 +30,21 @@ npm install --save react-obfuscate
 ### Input
 
 ```js
-import React from "react";
-import Obfuscate from "react-obfuscate";
+import React from 'react';
+import Obfuscate from 'react-obfuscate';
 
 export default () => (
   <p>
     Phone: <Obfuscate tel="205-454-1234" />
     <br />
-    Email:{" "}
+    Email:{' '}
     <Obfuscate
       email="hello@coston.io"
       headers={{
-        cc: "dade@zero-cool.af",
-        bcc: "smith@machina.net",
-        subject: "react-obfuscate",
-        body: "Down with the machines!"
+        cc: 'dade@zero-cool.af',
+        bcc: 'smith@machina.net',
+        subject: 'react-obfuscate',
+        body: 'Down with the machines!',
       }}
     />
   </p>
@@ -113,9 +113,9 @@ Example Case:
 
 ```js
 <address>
-  <Obfuscate style={{ display: "inline-block" }} email="-mail@mailbox.org" />
+  <Obfuscate style={{ display: 'inline-block' }} email="-mail@mailbox.org" />
   <br />
-  <Obfuscate style={{ display: "inline-block" }} tel="+69 111 222 333" />
+  <Obfuscate style={{ display: 'inline-block' }} tel="+69 111 222 333" />
 </address>
 ```
 
@@ -126,7 +126,7 @@ With the `element` prop, users can obfuscate any element, like paragraphs or hea
 Example Case:
 
 ```js
-<Obfuscate element="p" style={{ textAlign: "left" }}>
+<Obfuscate element="p" style={{ textAlign: 'left' }}>
   This paragraph is more secret than others.
 </Obfuscate>
 ```
@@ -141,6 +141,7 @@ react-obfuscate is awesome thanks to these community members:
 - [mic](https://github.com/mic)
 - [ravinggenius](https://github.com/ravinggenius)
 - [charlesbdudley](https://github.com/charlesbdudley)
+- [dalbitresb12](https://github.com/dalbitresb12)
 
 ## Contributing
 
