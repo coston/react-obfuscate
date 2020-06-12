@@ -57,14 +57,14 @@ const Obfuscate = (props) => {
   };
 
   const handleClick = () => {
+    // Allow instantiator to provide an onClick method to be called
+    // before we change location (e.g. for analytics tracking)
+    if (onClick && typeof onClick === 'function') {
+      onClick();
+    }
+
     // If focused or hovered, this js will be skipped with preference for html
     if (humanInteraction === false) {
-      // Allow instantiator to provide an onClick method to be called
-      // before we change location (e.g. for analytics tracking)
-      if (onClick && typeof onClick === 'function') {
-        onClick();
-      }
-
       window.location.href = generateLink({
         email,
         headers,
