@@ -7,6 +7,7 @@ const testEmail = 'coston.perkins@ua.edu';
 const testTel = '205-454-1234';
 const testTelReveresed = '4321-454-502';
 const originalLocation = 'https://example.com/';
+const testLinkText = 'Contact us';
 
 describe('obfuscate', () => {
   beforeEach(() => {
@@ -94,6 +95,18 @@ describe('obfuscate', () => {
 
     expect(wrapper.find('a').text()).toBe(testTel);
     expect(wrapper.prop('href')).toEqual(`facetime:${testTel}`);
+  });
+
+  test('renders the link text as a child when supplied', () => {
+    const wrapper = shallow(<Obfuscate email={testEmail} linkText={testLinkText} />);
+
+    expect(wrapper.find('a').text()).toBe(testLinkText);
+    expect(wrapper.prop('href')).toEqual('obfuscated');
+    expect(wrapper.find('a').prop('style')).toEqual({});
+
+    wrapper.simulate('mouseover');
+    expect(wrapper.find('a').text()).toBe(testLinkText);
+    expect(wrapper.prop('href')).toEqual(`mailto:${testEmail}`);
   });
 
   test('renders an unobfuscated child element right to left when obfuscated', () => {

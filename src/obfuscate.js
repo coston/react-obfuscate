@@ -81,24 +81,26 @@ const Obfuscate = (props) => {
     typeof content !== 'undefined' &&
     content.split('').reverse().join('').replace('(', ')').replace(')', '(');
 
-  const obfuscatedStyle = {
-    ...style,
-    unicodeBidi: 'bidi-override',
-    direction:
-      humanInteraction === true ||
-      obfuscate === false ||
-      obfuscateChildren === false
-        ? 'ltr'
-        : 'rtl',
-  };
+  const obfuscatedStyle = linkText
+    ? style
+    : {
+        ...style,
+        unicodeBidi: 'bidi-override',
+        direction:
+          humanInteraction === true ||
+          obfuscate === false ||
+          obfuscateChildren === false
+            ? 'ltr'
+            : 'rtl',
+      };
 
   const renderedLink =
     humanInteraction === true ||
     obfuscate === false ||
     typeof children === 'object' ||
     obfuscateChildren === false // Allow child elements
-      ? linkProps
-      : reverse(linkProps);
+      ? linkText || linkProps
+      : linkText || reverse(linkProps);
 
   const clickProps =
     Component === 'a'
@@ -106,7 +108,7 @@ const Obfuscate = (props) => {
           href:
             humanInteraction === true || obfuscate === false
               ? generateLink()
-              : linkText || 'obfuscated',
+              : 'obfuscated',
           onClick: handleClick,
         }
       : {};
