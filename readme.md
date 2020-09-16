@@ -131,6 +131,21 @@ Example Case:
 </Obfuscate>
 ```
 
+## Children
+By default, `children` are reversed in the dom. The `obfuscateChildren` prop set will disabled this functionality when set to `false`. If the child is an object, like html elements are, it will be rendered normally. 
+
+##### Example Use Case
+```js
+<Obfuscate email="hello@coston.io" aria-label="Email Me">
+  <svg width={24} height={21}>
+    <path 
+      fill="#000" 
+        d="M12 12.713L.0 3h23.97L12 12.713zm0 2.574L0 5.562V21h24V5" 
+    />
+  </svg>
+</Obfuscate>
+```
+
 ## Contributors
 
 react-obfuscate is awesome thanks to these community members:
