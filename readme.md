@@ -132,7 +132,7 @@ Example Case:
 ```
 
 ## Children
-By default, `children` are reversed in the dom. The `obfuscateChildren` prop set will disabled this functionality when set to `false`. If the child is an object, like html elements are, it will be rendered normally. 
+By default, objects **are not** reversed in the dom, but other types are. The `obfuscateChildren` prop set will disabled this functionality when set to `false`. If the child is an object, like html elements are, it will be rendered normally. 
 
 ##### Example Use Case
 ```js
