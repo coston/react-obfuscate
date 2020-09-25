@@ -2,7 +2,6 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/coston/react-obfuscate/badge.svg?branch=master)](https://coveralls.io/github/coston/react-obfuscate?branch=master)
 [![Build Status](https://travis-ci.org/coston/react-obfuscate.svg?branch=master)](https://travis-ci.org/coston/react-obfuscate)
-[![Greenkeeper badge](https://badges.greenkeeper.io/coston/react-obfuscate.svg)](https://greenkeeper.io/)
 [![npm version](https://badge.fury.io/js/react-obfuscate.svg)](https://www.npmjs.com/package/react-obfuscate)
 [![npm](https://img.shields.io/npm/dm/react-obfuscate.svg)](https://www.npmjs.com/package/react-obfuscate)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io)
@@ -132,15 +131,17 @@ Example Case:
 ```
 
 ## Children
-By default, objects **are not** reversed in the dom, but other types are. The `obfuscateChildren` prop set will disabled this functionality when set to `false`. If the child is an object, like html elements are, it will be rendered normally. 
+
+By default, objects **are not** reversed in the dom, but other types are. The `obfuscateChildren` prop set will disabled this functionality when set to `false`. If the child is an object, like html elements are, it will be rendered normally.
 
 ##### Example Use Case
+
 ```js
 <Obfuscate email="hello@coston.io" aria-label="Email Me">
   <svg width={24} height={21}>
-    <path 
-      fill="#000" 
-        d="M12 12.713L.0 3h23.97L12 12.713zm0 2.574L0 5.562V21h24V5" 
+    <path
+      fill="#000"
+      d="M12 12.713L.0 3h23.97L12 12.713zm0 2.574L0 5.562V21h24V5"
     />
   </svg>
 </Obfuscate>
