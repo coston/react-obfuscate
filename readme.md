@@ -2,7 +2,6 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/coston/react-obfuscate/badge.svg?branch=master)](https://coveralls.io/github/coston/react-obfuscate?branch=master)
 ![GitHub last commit](https://img.shields.io/github/last-commit/coston/react-obfuscate)
-[![Build Status](https://travis-ci.org/coston/react-obfuscate.svg?branch=master)](https://travis-ci.org/coston/react-obfuscate)
 [![npm version](https://badge.fury.io/js/react-obfuscate.svg)](https://www.npmjs.com/package/react-obfuscate)
 [![npm](https://img.shields.io/npm/dm/react-obfuscate.svg)](https://www.npmjs.com/package/react-obfuscate)
  
