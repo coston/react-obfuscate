@@ -2,7 +2,6 @@
   "extends": ["config:base"],
   "schedule": ["on saturday"],
   "labels": ["renovate"],
-  "stabilityDays": 7,
   "statusCheckVerify": true,
   "rangeStrategy": "auto",
   "prCreation": "not-pending",
