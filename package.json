@@ -35,11 +35,11 @@
     "postpublish": "git push && git push --tag"
   },
   "devDependencies": {
-    "@babel/cli": "7.16.7",
-    "@babel/core": "7.16.7",
-    "@babel/plugin-transform-runtime": "7.16.7",
+    "@babel/cli": "7.17.6",
+    "@babel/core": "7.17.5",
+    "@babel/plugin-transform-runtime": "7.17.0",
     "@babel/plugin-transform-spread": "7.16.7",
-    "@babel/preset-env": "7.16.7",
+    "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
     "@commitlint/cli": "16.0.1",
     "@commitlint/config-conventional": "16.0.0",
