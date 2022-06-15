@@ -151,13 +151,14 @@ const theme /*: PrismTheme */ = {
   ],
 };
 
-const App = () => (
-  <div>
-    <Head>
-      <title>react-obfuscate ☁️</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Head>
-    <style>{`
+function App() {
+  return (
+    <div>
+      <Head>
+        <title>react-obfuscate ☁️</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <style>{`
             html {
                 min-height: 100%;
                 background: #ffd0d4;
@@ -213,134 +214,135 @@ const App = () => (
           }
     `}</style>
 
-    <div
-      style={{
-        fontFamily:
-          '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '900px',
-        padding: '1em',
-      }}
-    >
-      <h1>react-obfuscate ☁️</h1>
-      <p>
-        <a
-          style={{ borderBottom: 'none', marginRight: '5px' }}
-          target="_blank"
-          href="https://coveralls.io/github/coston/react-obfuscate?branch=master"
-          rel="noreferrer"
-        >
-          <img
-            src="https://coveralls.io/repos/github/coston/react-obfuscate/badge.svg?branch=master"
-            alt="Coverage Status"
-          />
-        </a>
-        <a
-          style={{ borderBottom: 'none', marginRight: '5px' }}
-          target="_blank"
-          href="https://travis-ci.org/coston/react-obfuscate"
-          rel="noreferrer"
-        >
-          <img
-            src="https://travis-ci.org/coston/react-obfuscate.svg?branch=master"
-            alt="Travis"
-          />
-        </a>
-        <a
-          style={{ borderBottom: 'none', marginRight: '5px' }}
-          target="_blank"
-          href="https://www.npmjs.com/package/react-obfuscate"
-          rel="noreferrer"
-        >
-          <img
-            src="https://badge.fury.io/js/react-obfuscate.svg"
-            alt="npm version"
-          />
-        </a>
-        <a
-          style={{ borderBottom: 'none', marginRight: '5px' }}
-          target="_blank"
-          href="https://www.npmjs.com/package/react-obfuscate"
-          rel="noreferrer"
-        >
-          <img
-            src="https://img.shields.io/npm/dm/react-obfuscate.svg"
-            alt="npm"
-          />
-        </a>
-      </p>
-      <LiveProvider
-        code={headerCode}
-        scope={{
-          Obfuscate,
+      <div
+        style={{
+          fontFamily:
+            '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          maxWidth: '900px',
+          padding: '1em',
         }}
       >
-        <div
-          style={{
-            height: 'auto',
-            minWidth: '100%',
-            marginBottom: '2em',
+        <h1>react-obfuscate ☁️</h1>
+        <p>
+          <a
+            style={{ borderBottom: 'none', marginRight: '5px' }}
+            target="_blank"
+            href="https://coveralls.io/github/coston/react-obfuscate?branch=master"
+            rel="noreferrer"
+          >
+            <img
+              src="https://coveralls.io/repos/github/coston/react-obfuscate/badge.svg?branch=master"
+              alt="Coverage Status"
+            />
+          </a>
+          <a
+            style={{ borderBottom: 'none', marginRight: '5px' }}
+            target="_blank"
+            href="https://travis-ci.org/coston/react-obfuscate"
+            rel="noreferrer"
+          >
+            <img
+              src="https://travis-ci.org/coston/react-obfuscate.svg?branch=master"
+              alt="Travis"
+            />
+          </a>
+          <a
+            style={{ borderBottom: 'none', marginRight: '5px' }}
+            target="_blank"
+            href="https://www.npmjs.com/package/react-obfuscate"
+            rel="noreferrer"
+          >
+            <img
+              src="https://badge.fury.io/js/react-obfuscate.svg"
+              alt="npm version"
+            />
+          </a>
+          <a
+            style={{ borderBottom: 'none', marginRight: '5px' }}
+            target="_blank"
+            href="https://www.npmjs.com/package/react-obfuscate"
+            rel="noreferrer"
+          >
+            <img
+              src="https://img.shields.io/npm/dm/react-obfuscate.svg"
+              alt="npm"
+            />
+          </a>
+        </p>
+        <LiveProvider
+          code={headerCode}
+          scope={{
+            Obfuscate,
           }}
         >
-          <div>
-            <h2>Try Me</h2>
-            <p>
-              Inspect and click these robot-resistant, user friendly, contact
-              links
-            </p>
-            <Browser boxShadow="none">
-              <LivePreview />
-            </Browser>
-          </div>
-        </div>
-        <h2>Live Code</h2>
-        <Terminal boxShadow="none">
-          <LiveEditor
-            aria-describedby="Live Code Editor"
-            theme={theme}
+          <div
             style={{
-              background: 'black',
-              overflow: 'scroll',
+              height: 'auto',
+              minWidth: '100%',
+              marginBottom: '2em',
             }}
-          />
-          <LiveError />
-        </Terminal>
-      </LiveProvider>
+          >
+            <div>
+              <h2>Try Me</h2>
+              <p>
+                Inspect and click these robot-resistant, user friendly, contact
+                links
+              </p>
+              <Browser boxShadow="none">
+                <LivePreview />
+              </Browser>
+            </div>
+          </div>
+          <h2>Live Code</h2>
+          <Terminal boxShadow="none">
+            <LiveEditor
+              aria-describedby="Live Code Editor"
+              theme={theme}
+              style={{
+                background: 'black',
+                overflow: 'scroll',
+              }}
+            />
+            <LiveError />
+          </Terminal>
+        </LiveProvider>
 
-      <h2 id="howitworks">How It Works</h2>
+        <h2 id="howitworks">How It Works</h2>
 
-      <p>
-        Pass the contact link as an <code>email</code>, <code>tel</code>,{' '}
-        <code>sms</code>, <code>facetime</code>, or <code>href</code> prop. The
-        component obfuscates href data until an onClick event. Links are given
-        their proper URL schemes (mailto, facetime, etc.) The link is rendered
-        in reverse in the dom, but reversed again with css. This making the link
-        useless for spammers, but user friendly on screen.
-      </p>
+        <p>
+          Pass the contact link as an <code>email</code>, <code>tel</code>,{' '}
+          <code>sms</code>, <code>facetime</code>, or <code>href</code> prop.
+          The component obfuscates href data until an onClick event. Links are
+          given their proper URL schemes (mailto, facetime, etc.) The link is
+          rendered in reverse in the dom, but reversed again with css. This
+          making the link useless for spammers, but user friendly on screen.
+        </p>
 
-      <h2 id="why">Why</h2>
+        <h2 id="why">Why</h2>
 
-      <p>
-        The world needs obfuscated links that display the link in a friendly
-        way.
-      </p>
+        <p>
+          The world needs obfuscated links that display the link in a friendly
+          way.
+        </p>
 
-      <h2 id="usage">Install</h2>
+        <h2 id="usage">Install</h2>
 
-      <p>
-        <code>npm install react-obfuscate --save</code>
-      </p>
+        <p>
+          <code>npm install react-obfuscate --save</code>
+        </p>
 
-      <h2>Github</h2>
-      <p>
-        <a href="https://github.com/coston/react-obfuscate">
-          View documentation on GitHub
-        </a>
-      </p>
-      <div className="hint" />
+        <h2>Github</h2>
+        <p>
+          <a href="https://github.com/coston/react-obfuscate">
+            View documentation on GitHub
+          </a>
+        </p>
+        <div className="hint" />
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default App;
