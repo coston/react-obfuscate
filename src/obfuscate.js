@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import T from 'prop-types';
 
-const Obfuscate = (props) => {
+function Obfuscate(props) {
   const {
     element,
     children,
@@ -123,7 +123,7 @@ const Obfuscate = (props) => {
       {renderedLink}
     </Component>
   );
-};
+}
 
 Obfuscate.propTypes = {
   element: T.string,
