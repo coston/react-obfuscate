@@ -60,7 +60,7 @@
     "husky": "8.0.2",
     "jest": "27.5.1",
     "lint-staged": "13.1.0",
-    "next": "13.0.6",
+    "next": "13.1.1",
     "prettier": "2.8.1",
     "prop-types": "15.8.1",
     "react": "18.2.0",
