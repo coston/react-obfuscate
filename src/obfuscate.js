@@ -24,40 +24,29 @@ function Obfuscate(props) {
   const Component = element;
 
   const generateLink = () => {
-    if (email) {
-      let link = `mailto:${email}`;
+    let link = '';
+  
+    if (email && !email.startsWith('mailto:')) {
+      link = `mailto:${email.toLowerCase()}`;
   
       if (headers) {
         const headerParams = new URLSearchParams(headers).toString();
         link += `?${headerParams}`;
       }
-  
-      return link;
+    } else if (tel && !tel.startsWith('tel:')) {
+      link = `tel:${tel}`;
+    } else if (sms && !sms.startsWith('sms:')) {
+      link = `sms:${sms}`;
+    } else if (facetime && !facetime.startsWith('facetime:')) {
+      link = `facetime:${facetime}`;
+    } else if (href) {
+      link = href;
+    } else if (typeof children === 'string') {
+      link = children;
     }
   
-    if (tel) {
-      return `tel:${tel}`;
-    }
-  
-    if (sms) {
-      return `sms:${sms}`;
-    }
-  
-    if (facetime) {
-      return `facetime:${facetime}`;
-    }
-  
-    if (href) {
-      return href;
-    }
-  
-    if (typeof children === 'string') {
-      return children;
-    }
-  
-    return '';
+    return link;
   };
-  
 
   const handleClick = () => {
     // Allow instantiator to provide an onClick method to be called
