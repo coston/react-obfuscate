@@ -65,15 +65,7 @@ function Obfuscate(props) {
 
     // If focused or hovered, this js will be skipped with preference for html
     if (humanInteraction === false) {
-      window.location.href = generateLink({
-        email,
-        headers,
-        tel,
-        sms,
-        facetime,
-        href,
-        children,
-      });
+      window.location.href = generateLink();
     }
   };
 
