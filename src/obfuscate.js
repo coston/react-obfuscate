@@ -24,37 +24,40 @@ function Obfuscate(props) {
   const Component = element;
 
   const generateLink = () => {
-    let link;
-
-    // Combine email header parameters for use with email
-    const combineHeaders = (params) => {
-      return Object.keys(params)
-        .map((key) => `${key}=${encodeURIComponent(params[key])}`)
-        .join('&');
-    };
-
     if (email) {
-      link = `mailto:${email}`;
-
+      let link = `mailto:${email}`;
+  
       if (headers) {
-        link += `?${combineHeaders(headers)}`;
+        const headerParams = new URLSearchParams(headers).toString();
+        link += `?${headerParams}`;
       }
-    } else if (tel) {
-      link = `tel:${tel}`;
-    } else if (sms) {
-      link = `sms:${sms}`;
-    } else if (facetime) {
-      link = `facetime:${facetime}`;
-    } else if (href) {
-      link = href;
-    } else if (typeof children !== 'object') {
-      link = children;
-    } else {
-      return '';
+  
+      return link;
     }
-
-    return link;
+  
+    if (tel) {
+      return `tel:${tel}`;
+    }
+  
+    if (sms) {
+      return `sms:${sms}`;
+    }
+  
+    if (facetime) {
+      return `facetime:${facetime}`;
+    }
+  
+    if (href) {
+      return href;
+    }
+  
+    if (typeof children === 'string') {
+      return children;
+    }
+  
+    return '';
   };
+  
 
   const handleClick = () => {
     // Allow instantiator to provide an onClick method to be called
@@ -131,6 +134,7 @@ Obfuscate.propTypes = {
   linkText: T.string,
   style: T.shape({}),
   onClick: T.func,
+  className: T.string
 };
 
 Obfuscate.defaultProps = {
@@ -147,6 +151,7 @@ Obfuscate.defaultProps = {
   linkText: undefined,
   style: {},
   onClick: undefined,
+  className: ''
 };
 
 export default Obfuscate;
