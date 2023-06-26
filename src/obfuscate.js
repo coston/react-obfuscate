@@ -22,23 +22,25 @@ function Obfuscate(props) {
   const [humanInteraction, setHumanInteraction] = useState(false);
   const linkProps = children || tel || sms || facetime || email || href;
   const Component = element;
-
+  
   const generateLink = () => {
     let link = '';
   
-    if (email && !email.startsWith('mailto:')) {
-      link = `mailto:${email.toLowerCase()}`;
-  
+    if (email) {
+      link = email.toLowerCase();
+      if (!link.startsWith('mailto:')) {
+        link = `mailto:${link}`;        
+      }
       if (headers) {
         const headerParams = new URLSearchParams(headers).toString();
         link += `?${headerParams}`;
       }
-    } else if (tel && !tel.startsWith('tel:')) {
-      link = `tel:${tel}`;
-    } else if (sms && !sms.startsWith('sms:')) {
-      link = `sms:${sms}`;
-    } else if (facetime && !facetime.startsWith('facetime:')) {
-      link = `facetime:${facetime}`;
+    } else if (tel) {
+      link = tel.startsWith('tel:') ? tel : `tel:${tel}`;
+    } else if (sms) {
+      link = sms.startsWith('sms:') ? sms : `sms:${sms}`;
+    } else if (facetime) {
+      link = facetime.startsWith('facetime:') ? facetime : `facetime:${facetime}`;
     } else if (href) {
       link = href;
     } else if (typeof children === 'string') {
@@ -47,6 +49,8 @@ function Obfuscate(props) {
   
     return link;
   };
+  
+  
 
   const handleClick = () => {
     // Allow instantiator to provide an onClick method to be called
