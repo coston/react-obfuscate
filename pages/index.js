@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import Head from 'next/head';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';

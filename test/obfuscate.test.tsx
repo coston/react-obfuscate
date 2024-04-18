@@ -1,3 +1,5 @@
+//@ts-ignore
+
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Obfuscate from '../src/obfuscate';
@@ -10,11 +12,16 @@ const originalLocation = 'https://example.com/';
 
 describe('obfuscate', () => {
   beforeEach(() => {
-    delete global.window.location;
+    if (typeof window === 'undefined') {
+      global.window = {} as any;
+    }
 
-    global.window.location = {
-      href: new URL(originalLocation),
-    };
+    Object.defineProperty(global.window, 'location', {
+      value: {
+        href: originalLocation,
+      },
+      writable: true,
+    });
   });
 
   test('renders an obfuscated href', () => {
@@ -44,6 +51,8 @@ describe('obfuscate', () => {
     fireEvent.click(getByRole('link'));
     expect(global.window.location.href).toEqual(
       `mailto:${testEmail}?${Object.keys(headers)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore No index signature with a parameter of type 'string' was found on type '{ cc: string; bcc: string; subject: string; body: string; }'.
         .map((key) => `${key}=${encodeURIComponent(headers[key])}`)
         .join('&')}`
     );
@@ -107,6 +116,7 @@ describe('obfuscate', () => {
 
   test('renders a custom element', () => {
     const { getByRole } = render(
+      //@ts-ignore Property 'role' does not exist on type 'IntrinsicAttributes & ObfuscateProps'.
       <Obfuscate element="span" role="link" tel={testTel} />
     );
 
@@ -168,6 +178,7 @@ describe('obfuscate', () => {
   });
 
   test('Undefined does not break reversal', () => {
+    //@ts-ignore Property 'role' does not exist on type 'IntrinsicAttributes & ObfuscateProps'.
     const { getByRole } = render(<Obfuscate role="link" />);
 
     fireEvent.mouseOver(getByRole('link'));
