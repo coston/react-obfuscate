@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./dist/cjs",
+    "strict": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "declaration": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "moduleResolution": "node"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
