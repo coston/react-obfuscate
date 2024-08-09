@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Obfuscate from "../src/obfuscate";
+import Obfuscate from "../src";
 
 const testEmail = "coston.perkins@ua.edu";
 const testTel = "205-454-1234";

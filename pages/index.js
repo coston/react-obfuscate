@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import { Browser, Terminal } from "react-window-ui";
-import Obfuscate from "../src/obfuscate";
+import Obfuscate from "../src";
 
 const headerCode = `
 <ul>
