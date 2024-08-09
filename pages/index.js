@@ -1,8 +1,8 @@
-import React from 'react';
-import Head from 'next/head';
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import { Browser, Terminal } from 'react-window-ui';
-import Obfuscate from '../src/obfuscate';
+import React from "react";
+import Head from "next/head";
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
+import { Browser, Terminal } from "react-window-ui";
+import Obfuscate from "../src/obfuscate";
 
 const headerCode = `
 <ul>
@@ -57,94 +57,94 @@ const headerCode = `
 
 const theme /*: PrismTheme */ = {
   plain: {
-    color: '#fc929e',
+    color: "#fc929e",
   },
   styles: [
     {
-      types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
+      types: ["comment", "prolog", "doctype", "cdata", "punctuation"],
       style: {
-        color: '#fc929e',
+        color: "#fc929e",
       },
     },
     {
-      types: ['namespace'],
+      types: ["namespace"],
       style: {
         opacity: 0.7,
       },
     },
     {
-      types: ['tag', 'operator', 'number'],
+      types: ["tag", "operator", "number"],
       style: {
-        color: '#fff',
+        color: "#fff",
       },
     },
     {
-      types: ['property', 'function'],
+      types: ["property", "function"],
       style: {
-        color: '#9a86fd',
+        color: "#9a86fd",
       },
     },
     {
-      types: ['tag-id', 'selector', 'atrule-id'],
+      types: ["tag-id", "selector", "atrule-id"],
       style: {
-        color: '#fff',
+        color: "#fff",
       },
     },
     {
-      types: ['attr-name'],
+      types: ["attr-name"],
       style: {
-        color: '#fff',
+        color: "#fff",
       },
     },
     {
       types: [
-        'boolean',
-        'string',
-        'entity',
-        'url',
-        'attr-value',
-        'keyword',
-        'control',
-        'directive',
-        'unit',
-        'statement',
-        'regex',
-        'at-rule',
-        'placeholder',
-        'variable',
+        "boolean",
+        "string",
+        "entity",
+        "url",
+        "attr-value",
+        "keyword",
+        "control",
+        "directive",
+        "unit",
+        "statement",
+        "regex",
+        "at-rule",
+        "placeholder",
+        "variable",
       ],
       style: {
-        color: '#fc929e',
+        color: "#fc929e",
       },
     },
     {
-      types: ['deleted'],
+      types: ["deleted"],
       style: {
-        textDecorationLine: 'line-through',
+        textDecorationLine: "line-through",
       },
     },
     {
-      types: ['inserted'],
+      types: ["inserted"],
       style: {
-        textDecorationLine: 'underline',
+        textDecorationLine: "underline",
       },
     },
     {
-      types: ['italic'],
+      types: ["italic"],
       style: {
-        fontStyle: 'italic',
+        fontStyle: "italic",
       },
     },
     {
-      types: ['important', 'bold'],
+      types: ["important", "bold"],
       style: {
-        fontWeight: 'bold',
+        fontWeight: "bold",
       },
     },
     {
-      types: ['important'],
+      types: ["important"],
       style: {
-        color: '#6c6783',
+        color: "#6c6783",
       },
     },
   ],
@@ -216,17 +216,17 @@ function App() {
       <div
         style={{
           fontFamily:
-            '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: '900px',
-          padding: '1em',
+            "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+          marginLeft: "auto",
+          marginRight: "auto",
+          maxWidth: "900px",
+          padding: "1em",
         }}
       >
         <h1>react-obfuscate ☁️</h1>
         <p>
           <a
-            style={{ borderBottom: 'none', marginRight: '5px' }}
+            style={{ borderBottom: "none", marginRight: "5px" }}
             target="_blank"
             href="https://coveralls.io/github/coston/react-obfuscate?branch=master"
             rel="noreferrer"
@@ -237,7 +237,7 @@ function App() {
             />
           </a>
           <a
-            style={{ borderBottom: 'none', marginRight: '5px' }}
+            style={{ borderBottom: "none", marginRight: "5px" }}
             target="_blank"
             href="https://travis-ci.org/coston/react-obfuscate"
             rel="noreferrer"
@@ -248,7 +248,7 @@ function App() {
             />
           </a>
           <a
-            style={{ borderBottom: 'none', marginRight: '5px' }}
+            style={{ borderBottom: "none", marginRight: "5px" }}
             target="_blank"
             href="https://www.npmjs.com/package/react-obfuscate"
             rel="noreferrer"
@@ -259,7 +259,7 @@ function App() {
             />
           </a>
           <a
-            style={{ borderBottom: 'none', marginRight: '5px' }}
+            style={{ borderBottom: "none", marginRight: "5px" }}
             target="_blank"
             href="https://www.npmjs.com/package/react-obfuscate"
             rel="noreferrer"
@@ -278,9 +278,9 @@ function App() {
         >
           <div
             style={{
-              height: 'auto',
-              minWidth: '100%',
-              marginBottom: '2em',
+              height: "auto",
+              minWidth: "100%",
+              marginBottom: "2em",
             }}
           >
             <div>
@@ -300,8 +300,8 @@ function App() {
               aria-describedby="Live Code Editor"
               theme={theme}
               style={{
-                background: 'black',
-                overflow: 'scroll',
+                background: "black",
+                overflow: "scroll",
               }}
             />
             <LiveError />
@@ -311,7 +311,7 @@ function App() {
         <h2 id="howitworks">How It Works</h2>
 
         <p>
-          Pass the contact link as an <code>email</code>, <code>tel</code>,{' '}
+          Pass the contact link as an <code>email</code>, <code>tel</code>,{" "}
           <code>sms</code>, <code>facetime</code>, or <code>href</code> prop.
           The component obfuscates href data until an onClick event. Links are
           given their proper URL schemes (mailto, facetime, etc.) The link is

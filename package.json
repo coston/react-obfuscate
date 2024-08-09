@@ -32,8 +32,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "preversion": "npm run test && npm run lint:fix && npm run clean && npm run build && npm run export",
     "postpublish": "git push && git push --tag"
