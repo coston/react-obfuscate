@@ -39,14 +39,6 @@
     "postpublish": "git push && git push --tag"
   },
   "devDependencies": {
-    "@babel/cli": "7.24.1",
-    "@babel/core": "7.24.4",
-    "@babel/eslint-parser": "7.24.1",
-    "@babel/plugin-transform-runtime": "7.24.3",
-    "@babel/plugin-transform-spread": "7.24.1",
-    "@babel/preset-env": "7.24.4",
-    "@babel/preset-react": "7.24.1",
-    "@babel/preset-typescript": "^7.24.1",
     "@commitlint/cli": "19.2.1",
     "@commitlint/config-conventional": "19.1.0",
     "@testing-library/jest-dom": "^6.4.8",
