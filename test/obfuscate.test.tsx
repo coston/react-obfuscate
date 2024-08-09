@@ -43,7 +43,7 @@ describe("obfuscate", () => {
       body: "Down with the machines!",
     };
     const { getByRole } = render(
-      <Obfuscate email={testEmail} headers={headers} />
+      <Obfuscate email={testEmail} headers={headers} />,
     );
 
     fireEvent.click(getByRole("link"));
@@ -52,7 +52,7 @@ describe("obfuscate", () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore No index signature with a parameter of type 'string' was found on type '{ cc: string; bcc: string; subject: string; body: string; }'.
         .map((key) => `${key}=${encodeURIComponent(headers[key])}`)
-        .join("&")}`
+        .join("&")}`,
     );
   });
   test("properly sets location.href when obfuscated tel is clicked", () => {
@@ -98,7 +98,7 @@ describe("obfuscate", () => {
 
   test("renders an unobfuscated child element left to right when obfuscate prop equals false", () => {
     const { getByRole } = render(
-      <Obfuscate obfuscate={false} facetime={testTel} />
+      <Obfuscate obfuscate={false} facetime={testTel} />,
     );
 
     expect(getByRole("link")).toHaveTextContent(testTel);
@@ -115,7 +115,7 @@ describe("obfuscate", () => {
   test("renders a custom element", () => {
     const { getByRole } = render(
       //@ts-expect-error Property 'role' does not exist on type 'IntrinsicAttributes & ObfuscateProps'.
-      <Obfuscate element="span" role="link" tel={testTel} />
+      <Obfuscate element="span" role="link" tel={testTel} />,
     );
 
     expect(getByRole("link")).toHaveTextContent(testTelReversed);
@@ -126,7 +126,7 @@ describe("obfuscate", () => {
   test("calls supplied onClick method", () => {
     const onClick = jest.fn();
     const { getByRole } = render(
-      <Obfuscate email={testEmail} onClick={onClick} />
+      <Obfuscate email={testEmail} onClick={onClick} />,
     );
 
     fireEvent.mouseOver(getByRole("link"));
@@ -168,7 +168,7 @@ describe("obfuscate", () => {
     const { getByRole } = render(
       <Obfuscate>
         <button type="button">This is a child object</button>
-      </Obfuscate>
+      </Obfuscate>,
     );
 
     fireEvent.mouseOver(getByRole("button"));
@@ -185,7 +185,7 @@ describe("obfuscate", () => {
 
   test("renders an unobfuscated children when obfuscateChildren is false", () => {
     const { getByRole } = render(
-      <Obfuscate obfuscateChildren={false} tel={testTel} />
+      <Obfuscate obfuscateChildren={false} tel={testTel} />,
     );
 
     expect(getByRole("link")).toHaveTextContent(testTel);
@@ -198,7 +198,7 @@ describe("obfuscate", () => {
 
   test("includes additional style prop values", () => {
     const { getByRole } = render(
-      <Obfuscate style={{ color: "test" }} tel={testTel} />
+      <Obfuscate style={{ color: "test" }} tel={testTel} />,
     );
 
     expect(getByRole("link")).toHaveStyle({
