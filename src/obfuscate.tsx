@@ -116,7 +116,7 @@ const Obfuscate = ({
           string | React.JSXElementConstructor<unknown>
         >
       | Iterable<React.ReactNode>
-      | undefined
+      | undefined,
   ) =>
     typeof content === "string" &&
     content.split("").reverse().join("").replace("(", ")").replace(")", "(");
