@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, ElementType } from 'react';
+import React, { useState, ReactNode, ElementType } from "react";
 
 interface LinkProps {
   email?: string;
@@ -22,7 +22,7 @@ interface ObfuscateProps extends LinkProps {
 const combineHeaders = (params: Record<string, string>) => {
   return Object.keys(params)
     .map((key) => `${key}=${encodeURIComponent(params[key])}`)
-    .join('&');
+    .join("&");
 };
 
 const generateLink = ({
@@ -58,15 +58,15 @@ const generateLink = ({
     return href;
   }
 
-  if (typeof children !== 'object') {
+  if (typeof children !== "object") {
     return children;
   }
 
-  return '';
+  return "";
 };
 
 const Obfuscate = ({
-  element = 'a',
+  element = "a",
   children,
   tel,
   sms,
@@ -88,7 +88,7 @@ const Obfuscate = ({
   const handleClick = () => {
     // Allow instantiator to provide an onClick method to be called
     // before we change location (e.g. for analytics tracking)
-    if (onClick && typeof onClick === 'function') {
+    if (onClick && typeof onClick === "function") {
       onClick();
     }
 
@@ -118,19 +118,19 @@ const Obfuscate = ({
       | Iterable<React.ReactNode>
       | undefined
   ) =>
-    typeof content === 'string' &&
-    content.split('').reverse().join('').replace('(', ')').replace(')', '(');
+    typeof content === "string" &&
+    content.split("").reverse().join("").replace("(", ")").replace(")", "(");
 
   const renderedLink =
     humanInteraction === true ||
     obfuscate === false ||
-    typeof children === 'object' ||
+    typeof children === "object" ||
     obfuscateChildren === false // Allow child elements
       ? linkProps
-      : reverse(linkProps);
+      : reverse(linkProps as string);
 
   const clickProps =
-    Component === 'a'
+    Component === "a"
       ? {
           href:
             humanInteraction === true || obfuscate === false
@@ -143,7 +143,7 @@ const Obfuscate = ({
                   href,
                   children,
                 })
-              : linkText || 'obfuscated',
+              : linkText || "obfuscated",
           onClick: handleClick,
         }
       : {};
@@ -157,13 +157,13 @@ const Obfuscate = ({
       {...clickProps}
       style={{
         ...style,
-        unicodeBidi: 'bidi-override',
+        unicodeBidi: "bidi-override",
         direction:
           humanInteraction === true ||
           obfuscate === false ||
           obfuscateChildren === false
-            ? 'ltr'
-            : 'rtl',
+            ? "ltr"
+            : "rtl",
       }}
     >
       {renderedLink}
