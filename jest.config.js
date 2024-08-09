@@ -1,15 +1,11 @@
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  collectCoverage: true,
-  preset: 'ts-jest',
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
-  coverageDirectory: 'coverage',
-  testEnvironment: 'jsdom',
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  preset: "ts-jest",
+  testEnvironment: "jsdom",
   globals: {
-    window: {},
+    "ts-jest": {
+      tsconfig: "tsconfig.test.json",
+    },
   },
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"], // Add this line
 };
