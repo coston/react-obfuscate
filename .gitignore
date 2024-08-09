@@ -60,5 +60,5 @@ typings/
 # ignore dev and docs sites
 .next
 out
-
+lib
 dist

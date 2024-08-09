@@ -1,11 +1,13 @@
 {
   "name": "react-obfuscate",
-  "version": "3.6.9",
+  "version": "3.6.10-2",
   "description": "An intelligent React component to obfuscate any contact link",
-  "main": "dist/obfuscate.js",
   "files": [
-    "dist/obfuscate.js"
+    "/lib"
   ],
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "author": "Coston Perkins <costonperkins@me.com> (https://coston.io)",
   "homepage": "https://github.com/coston/react-obfuscate",
   "repository": {
@@ -21,52 +23,47 @@
   },
   "scripts": {
     "start": "next",
-    "build": "babel -d dist src",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "build:esm": "tsc",
     "build-site": "next build",
     "clean": "rm -rf dist && mkdir dist",
     "export": "npm run build-site && next export",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "lint": "eslint --ext=js --ext=jsx ./src",
-    "lint:fix": "eslint --ext=js --ext=jsx ./src --fix",
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "preversion": "npm run test && npm run lint:fix && npm run clean && npm run build && npm run export",
     "postpublish": "git push && git push --tag"
   },
   "devDependencies": {
-    "@babel/cli": "7.24.7",
-    "@babel/core": "7.24.7",
-    "@babel/eslint-parser": "7.24.7",
-    "@babel/plugin-transform-runtime": "7.24.7",
-    "@babel/plugin-transform-spread": "7.24.7",
-    "@babel/preset-env": "7.24.7",
-    "@babel/preset-react": "7.24.7",
-    "@commitlint/cli": "19.3.0",
-    "@commitlint/config-conventional": "19.2.2",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^16.0.0",
-    "babel-jest": "29.7.0",
+    "@commitlint/cli": "19.2.1",
+    "@commitlint/config-conventional": "19.1.0",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^15.0.2",
+    "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "coveralls": "3.1.1",
-    "eslint": "^8",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsx-a11y": "6.9.0",
-    "eslint-plugin-prettier": "5.2.1",
-    "eslint-plugin-react": "7.35.0",
-    "eslint-plugin-react-hooks": "4.6.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.34.1",
     "husky": "9.0.11",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "lint-staged": "15.2.7",
-    "next": "14.2.5",
-    "prettier": "3.3.3",
+    "lint-staged": "15.2.2",
+    "next": "13.4.7",
+    "prettier": "3.2.5",
     "prop-types": "15.8.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-live": "4.1.7",
-    "react-window-ui": "2.2.0"
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-live": "4.1.6",
+    "react-window-ui": "2.2.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "prop-types": ">= 15",
@@ -74,7 +71,7 @@
     "react-dom": ">= 16.8"
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
   },
