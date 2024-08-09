@@ -2,11 +2,12 @@
   "name": "react-obfuscate",
   "version": "3.6.9",
   "description": "An intelligent React component to obfuscate any contact link",
-  "main": "dist/cjs/obfuscate.js",
-  "module": "dist/esm/obfuscate.js",
   "files": [
-    "dist/obfuscate.js"
+    "/lib"
   ],
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "author": "Coston Perkins <costonperkins@me.com> (https://coston.io)",
   "homepage": "https://github.com/coston/react-obfuscate",
   "repository": {
@@ -22,9 +23,9 @@
   },
   "scripts": {
     "start": "next",
-    "build:cjs": "tsc -p tsconfig.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build": "npm run build:cjs && npm run build:esm",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "build:esm": "tsc",
     "build-site": "next build",
     "clean": "rm -rf dist && mkdir dist",
     "export": "npm run build-site && next export",
@@ -48,9 +49,10 @@
     "@babel/preset-typescript": "^7.24.1",
     "@commitlint/cli": "19.2.1",
     "@commitlint/config-conventional": "19.1.0",
-    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^15.0.2",
     "@types/jest": "^29.5.12",
+    "@types/testing-library__jest-dom": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "@typescript-eslint/parser": "^7.7.0",
     "coveralls": "3.1.1",
