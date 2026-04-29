@@ -56,11 +56,11 @@ export default () => (
 ```html
 <p>
   Phone:
-  <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;"
+  <a href="obfuscated" style="direction: rtl; unicode-bidi: isolate-override;"
     >4321-454-502</a
   ><br />
   Email:
-  <a href="obfuscated" style="direction: rtl; unicode-bidi: bidi-override;"
+  <a href="obfuscated" style="direction: rtl; unicode-bidi: isolate-override;"
     >oi.notsoc@olleh</a
   >
 </p>

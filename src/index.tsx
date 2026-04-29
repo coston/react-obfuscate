@@ -157,7 +157,7 @@ const Obfuscate = ({
       {...clickProps}
       style={{
         ...style,
-        unicodeBidi: "bidi-override",
+        unicodeBidi: "isolate-override",
         direction:
           humanInteraction === true ||
           obfuscate === false ||
