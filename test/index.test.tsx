@@ -192,7 +192,7 @@ describe("obfuscate", () => {
     expect(getByRole("link")).toHaveAttribute("href", "obfuscated");
     expect(getByRole("link")).toHaveStyle({
       direction: "ltr",
-      unicodeBidi: "bidi-override",
+      unicodeBidi: "isolate-override",
     });
   });
 
@@ -204,7 +204,7 @@ describe("obfuscate", () => {
     expect(getByRole("link")).toHaveStyle({
       color: "test",
       direction: "rtl",
-      unicodeBidi: "bidi-override",
+      unicodeBidi: "isolate-override",
     });
   });
 });
