@@ -192,7 +192,7 @@ describe("obfuscate", () => {
     expect(getByRole("link")).toHaveAttribute("href", "obfuscated");
     expect(getByRole("link")).toHaveStyle({
       direction: "ltr",
-      unicodeBidi: "bidi-override",
+      unicodeBidi: "isolate-override",
     });
   });
 
@@ -204,7 +204,23 @@ describe("obfuscate", () => {
     expect(getByRole("link")).toHaveStyle({
       color: "test",
       direction: "rtl",
-      unicodeBidi: "bidi-override",
+      unicodeBidi: "isolate-override",
+    });
+  });
+
+  test("uses isolate-override so sibling text outside the link is not reordered", () => {
+    const { getByRole } = render(
+      <h1>
+        <Obfuscate email={testEmail} linkText="#">
+          Emailtext
+        </Obfuscate>{" "}
+        1 2 3
+      </h1>,
+    );
+
+    expect(getByRole("link")).toHaveStyle({
+      direction: "rtl",
+      unicodeBidi: "isolate-override",
     });
   });
 });
